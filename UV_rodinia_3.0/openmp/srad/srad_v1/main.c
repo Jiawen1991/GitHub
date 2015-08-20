@@ -211,7 +211,7 @@ int main(int argc, char *argv []){
     jE[Nc-1] = Nc-1;														// changes IMAGE rightmost column index from Nc to Nc-1
 
 	time5 = get_time();
-
+	double start_timer = omp_get_wtime();
 	//================================================================================80
 	// 	SCALE IMAGE DOWN FROM 0-255 TO 0-1 AND EXTRACT
 	//================================================================================80
@@ -332,7 +332,8 @@ int main(int argc, char *argv []){
 	for (i=0; i<Ne; i++) {													// do for the number of elements in IMAGE
 		image[i] = log(image[i])*255;													// take logarithm of image, log compress
 	}
-
+	double end_timer = omp_get_wtime();
+	printf("Time8-time5: %.8f\n",(end_timer-start_timer));
 	time8 = get_time();
 
 	//================================================================================80

@@ -36,7 +36,7 @@
 #include "graphics.c"
 #include "resize.c"
 #include "timer.c"
-
+#include "omp.h"
 #include "device.c"				// (in library path specified to compiler)	needed by for device functions
 
 //====================================================================================================100
@@ -230,7 +230,7 @@ int main(int argc, char *argv []){
 	//================================================================================80
 	// 	GPU SETUP
 	//================================================================================80
-
+	double start_timer = omp_get_wtime();
 	// allocate memory for entire IMAGE on DEVICE
 	mem_size = sizeof(fp) * Ne;																		// get the size of float representation of input IMAGE
 	cudaMalloc((void **)&d_I, mem_size);														//
@@ -429,7 +429,8 @@ int main(int argc, char *argv []){
 	cudaMemcpy(image, d_I, mem_size, cudaMemcpyDeviceToHost);
 
 	checkCUDAError("copy back");
-
+	double end_timer = omp_get_wtime();
+	printf("Time10 - GPU_Setup: %.8f\n",(end_timer-start_timer));
 	time10 = get_time();
 
 	//================================================================================80

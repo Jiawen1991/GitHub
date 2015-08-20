@@ -18,7 +18,7 @@ a.out:		main.o
 	$(CC)	main.o \
 				-I$(INCLUDE) \
 				-L$(CUDA_LIB_DIR)  \
-				-lm -lcuda -lcudart -o srad
+				-lm -lcuda -lcudart -Xcompiler -fopenmp -o srad
 
 # compile main function file into object (binary)
 main.o: 	main.cu \

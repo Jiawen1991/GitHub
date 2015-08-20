@@ -4,7 +4,7 @@ OCL_INC_DIR = -I$(OPENCL_INC)
 OCL_LIB_DIR = -L$(OPENCL_LIB)
 
 C_C = gcc
-OCL_LIB = -lOpenCL
+OCL_LIB = -lOpenCL -fopenmp
 
 ./a.out:	./main.o \
 			./kernel/kernel_gpu_opencl_wrapper.o \
