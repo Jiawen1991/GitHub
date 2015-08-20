@@ -1,0 +1,1 @@
+./kmeans_openmp/kmeans -n 8 -i ../../data/kmeans/819200.txt
