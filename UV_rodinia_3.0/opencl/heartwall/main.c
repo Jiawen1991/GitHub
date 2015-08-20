@@ -271,7 +271,7 @@ main(	int argc,
 	printf("%15.12f s, %15.12f % : GPU ALLOCATION, COPYING, COMPUTATION\n",									(fp) (time4-time3) / 1000000, (fp) (time4-time3) / (fp) (time5-time0) * 100);
 	printf("%15.12f s, %15.12f % : FREE MEMORY\n", 															(fp) (time5-time4) / 1000000, (fp) (time5-time4) / (fp) (time5-time0) * 100);
 	printf("Total time:\n");
-	printf("%15.12f s\n", 																					(fp) (time5-time1) / 1000000);
+	printf("%15.12f s\n", 																					(fp) (time5-time2) / 1000000);
 
 	//======================================================================================================================================================150
 	//	End
