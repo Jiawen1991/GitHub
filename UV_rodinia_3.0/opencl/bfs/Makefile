@@ -5,7 +5,7 @@ CC = g++
 
 SRC = bfs.cpp timer.cc
 
-CC_FLAGS = -g -O3
+CC_FLAGS = -g -O3 -fopenmp
 
 EXE = bfs
 

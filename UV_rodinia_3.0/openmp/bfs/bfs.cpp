@@ -104,8 +104,8 @@ void BFSGraph( int argc, char** argv)
 
 	if(fp)
 		fclose(fp);    
-
-
+	
+	
 	// allocate mem for the result on host side
 	int* h_cost = (int*) malloc( sizeof(int)*no_of_nodes);
 	for(int i=0;i<no_of_nodes;i++)
@@ -113,7 +113,7 @@ void BFSGraph( int argc, char** argv)
 	h_cost[source]=0;
 	
 	printf("Start traversing the tree\n");
-	
+	double start_timer = omp_get_wtime();
 	int k=0;
     
 	bool stop;
@@ -154,7 +154,9 @@ void BFSGraph( int argc, char** argv)
 		k++;
 	}
 	while(stop);
-
+	
+	double end_timer = omp_get_wtime();
+	printf("%.8f",(end_timer-start_timer));
 	//Store the result into a file
 	FILE *fpo = fopen("result.txt","w");
 	for(int i=0;i<no_of_nodes;i++)

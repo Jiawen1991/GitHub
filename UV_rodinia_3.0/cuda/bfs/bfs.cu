@@ -20,7 +20,7 @@
 #include <string.h>
 #include <math.h>
 #include <cuda.h>
-
+#include "omp.h"
 #define MAX_THREADS_PER_BLOCK 512
 
 int no_of_nodes;
@@ -132,7 +132,8 @@ void BFSGraph( int argc, char** argv)
 		fclose(fp);    
 
 	printf("Read File\n");
-
+	
+	double start_timer = omp_get_wtime();
 	//Copy the Node list to device memory
 	Node* d_graph_nodes;
 	cudaMalloc( (void**) &d_graph_nodes, sizeof(Node)*no_of_nodes) ;
@@ -205,6 +206,9 @@ void BFSGraph( int argc, char** argv)
 
 	// copy result from device to host
 	cudaMemcpy( h_cost, d_cost, sizeof(int)*no_of_nodes, cudaMemcpyDeviceToHost) ;
+	
+	double end_timer = omp_get_wtime();    
+  	 printf("%.8f\n",(end_timer-start_timer));
 
 	//Store the result into a file
 	FILE *fpo = fopen("result.txt","w");
