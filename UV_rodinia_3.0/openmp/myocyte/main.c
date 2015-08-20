@@ -273,7 +273,7 @@ int main(int argc, char *argv []){
 	}
 
 	time3 = get_time();
-
+	double start_timer = omp_get_wtime();
 	//================================================================================80
 	//	EXECUTION
 	//================================================================================80
@@ -325,7 +325,8 @@ int main(int argc, char *argv []){
 			// }
 		// }
 	// }
-
+	double end_timer = omp_get_wtime();
+	printf("Time4-Time3 : %.8f\n",(end_timer - start_timer));
 	time4 = get_time();
 
 	//================================================================================80

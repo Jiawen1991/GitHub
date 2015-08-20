@@ -9,7 +9,7 @@
 #include "master.cu"
 #include "embedded_fehlberg_7_8.cu"
 #include "solver.cu"
-
+#include "omp.h"
 //====================================================================================================100
 //	MAIN FUNCTION
 //====================================================================================================100
@@ -140,7 +140,7 @@ int work(	int xmax,
 	}
 
 	time3 = get_time();
-
+	double start_timer = omp_get_wtime();
 	//================================================================================80
 	//	EXECUTION
 	//================================================================================80
@@ -163,7 +163,8 @@ int work(	int xmax,
 		}
 
 	}
-
+	double end_timer = omp_get_wtime();
+	printf("Before_output-Time3 : %.8f\n",(end_timer-start_timer));
 
 	  FILE * pFile;
 	  pFile = fopen ("output.txt","w");
