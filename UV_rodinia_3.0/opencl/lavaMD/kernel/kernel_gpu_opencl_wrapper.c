@@ -528,6 +528,7 @@ kernel_gpu_opencl_wrapper(	par_str par_cpu,
 
 	printf("Total time:\n");
 	printf("%.12f s\n", 												(float) (time6-time0) / 1000000);
+	printf("\nTime5-Time1 : %.12f s\n", 												(float) (time5-time1) / 1000000);
 
 }
 

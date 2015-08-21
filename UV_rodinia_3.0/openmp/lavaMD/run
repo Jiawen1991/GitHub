@@ -1,1 +1,1 @@
-./lavaMD -cores 4 -boxes1d 10
+./lavaMD -cores 8 -boxes1d 20

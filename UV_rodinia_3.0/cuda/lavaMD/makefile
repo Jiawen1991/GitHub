@@ -31,11 +31,11 @@ a.out:		main.o \
 			./util/num/num.o \
 			./util/timer/timer.o \
 			./util/device/device.o \
-			-lm \
-			-L/usr/local/cuda/lib64 \
+			-lm -lstdc++\
+			-L/usr/local/cuda/lib64 -L/APPS/cuda/lib64\
 			-lcuda -lcudart \
 			$(OMP_LIB) \
-			-o lavaMD
+			-o lavaMDa 
 
 # compile function files into objects (binaries)
 main.o:		main.h \
