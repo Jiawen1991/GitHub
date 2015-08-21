@@ -1,6 +1,7 @@
 #include "hotspot.h"
 #include "omp.h"
 
+double start,end;
 void writeoutput(float *vect, int grid_rows, int grid_cols, char *file) {
 
 	int i,j, index=0;
@@ -86,8 +87,9 @@ int compute_tran_temp(cl_mem MatrixPower, cl_mem MatrixTemp[2], int col, int row
 	local_work_size[1] = BLOCK_SIZE;
 	
 	
-	long long start_time = get_time();	
+	//long long start_time = get_time();	
 	
+	start = omp_get_wtime();
 	for (t = 0; t < total_iterations; t += num_iterations) {
 		
 		// Specify kernel arguments
@@ -123,9 +125,9 @@ int compute_tran_temp(cl_mem MatrixPower, cl_mem MatrixTemp[2], int col, int row
 	error = clFinish(command_queue);
 	if (error != CL_SUCCESS) fatal_CL(error, __LINE__);
 	
-	long long end_time = get_time();
-	long long total_time = (end_time - start_time);	
-	printf("\nKernel time: %.3f seconds\n", ((float) total_time) / (1000*1000));
+	//long long end_time = get_time();
+	//long long total_time = (end_time - start_time);	
+	//printf("\nKernel time: %.3f seconds\n", ((float) total_time) / (1000*1000));
 	
 	return src;
 }
@@ -255,7 +257,6 @@ int main(int argc, char** argv) {
 	
 		
 	//long long start_time = get_time();
-	double start = omp_get_wtime();
 	
 	// Create two temperature matrices and copy the temperature input data
 	cl_mem MatrixTemp[2];
@@ -277,7 +278,7 @@ int main(int argc, char** argv) {
 	cl_float *MatrixOut = (cl_float *) clEnqueueMapBuffer(command_queue, MatrixTemp[ret], CL_TRUE, CL_MAP_READ, 0, sizeof(float) * size, 0, NULL, NULL, &error);
 	if (error != CL_SUCCESS) fatal_CL(error, __LINE__);
 	
-	double end = omp_get_wtime();
+	end = omp_get_wtime();
 	printf("%.8f",(end-start));
 	//long long end_time = get_time();	
 	//printf("Total time: %.3f seconds\n", ((float) (end_time - start_time)) / (1000*1000));
