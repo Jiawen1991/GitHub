@@ -60,6 +60,7 @@ main ( int argc, char *argv[] )
   const char *input_file = NULL;
   float *m, *d_m, *mm;
   stopwatch sw;
+  stopwatch sw1;
 
   while ((opt = getopt_long(argc, argv, "::vs:i:", 
                             long_options, &option_index)) != -1 ) {
@@ -126,25 +127,34 @@ main ( int argc, char *argv[] )
     matrix_duplicate(m, &mm, matrix_dim);
   }
 
+  stopwatch_start(&sw1);
+  stopwatch_start(&sw);
   cudaMalloc((void**)&d_m, 
              matrix_dim*matrix_dim*sizeof(float));
 
   /* beginning of timing point */
-  stopwatch_start(&sw);
   cudaMemcpy(d_m, m, matrix_dim*matrix_dim*sizeof(float), 
 	     cudaMemcpyHostToDevice);
 
+	stopwatch_stop(&sw);
+  printf("stage1(ms): %lf\n", 1000*get_interval_by_sec(&sw));
+  stopwatch_start(&sw);
   lud_cuda(d_m, matrix_dim);
 
+  stopwatch_stop(&sw);
+  printf("stage2(ms): %lf\n", 1000*get_interval_by_sec(&sw));
+  stopwatch_start(&sw);
   cudaMemcpy(m, d_m, matrix_dim*matrix_dim*sizeof(float), 
 	     cudaMemcpyDeviceToHost);
 
   /* end of timing point */
-  stopwatch_stop(&sw);
-  printf("Time consumed(ms): %lf\n", 1000*get_interval_by_sec(&sw));
 
   cudaFree(d_m);
 
+  stopwatch_stop(&sw);
+  stopwatch_stop(&sw1);
+  printf("stage3(ms): %lf\n", 1000*get_interval_by_sec(&sw));
+  printf("total(ms): %lf\n", 1000*get_interval_by_sec(&sw1));
 
   if (do_verify){
     printf("After LUD\n");

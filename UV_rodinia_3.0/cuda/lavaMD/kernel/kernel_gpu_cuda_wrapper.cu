@@ -238,4 +238,8 @@ kernel_gpu_cuda_wrapper(par_str par_cpu,
 	printf("%.12f s\n", 												(float) (time6-time0) / 1000000);
 	printf("\nTime5 - Time1 : %.12f s\n", 												(float) (time5-time1) / 1000000);
 
+	printf("\nstage1 : %.12f s\n", 												(float) (time3-time0) / 1000000);
+	printf("\nstage2 : %.12f s\n", 												(float) (time4-time3) / 1000000);
+	printf("\nstage3 : %.12f s\n", 												(float) (time6-time4) / 1000000);
+	printf("\ntotal : %.12f s\n", 												(float) (time6-time0) / 1000000);
 }

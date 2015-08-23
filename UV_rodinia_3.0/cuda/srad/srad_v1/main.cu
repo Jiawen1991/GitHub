@@ -63,7 +63,7 @@ int main(int argc, char *argv []){
 	long long time10;
 	long long time11;
 	long long time12;
-
+	long long time_start;
 	time0 = get_time();
 
     // inputs image, input paramenters
@@ -230,8 +230,10 @@ int main(int argc, char *argv []){
 	//================================================================================80
 	// 	GPU SETUP
 	//================================================================================80
-	double start_timer = omp_get_wtime();
+	//double start_timer = omp_get_wtime();
 	// allocate memory for entire IMAGE on DEVICE
+	//stage1_start
+	time_start = get_time();
 	mem_size = sizeof(fp) * Ne;																		// get the size of float representation of input IMAGE
 	cudaMalloc((void **)&d_I, mem_size);														//
 
@@ -281,18 +283,19 @@ int main(int argc, char *argv []){
 	//================================================================================80
 
 	cudaMemcpy(d_I, image, mem_size, cudaMemcpyHostToDevice);
-
+	//stage1_end
+	//stage2_start
 	time6 = get_time();
 
 	//================================================================================80
 	// 	SCALE IMAGE DOWN FROM 0-255 TO 0-1 AND EXTRACT
 	//================================================================================80
-
+	
 	extract<<<blocks, threads>>>(	Ne,
 									d_I);
 
 	checkCUDAError("extract");
-
+	//
 	time7 = get_time();
 
 	//================================================================================80
@@ -419,7 +422,8 @@ int main(int argc, char *argv []){
 									d_I);
 
 	checkCUDAError("compress");
-
+	//stage2_end
+	//stage3_start
 	time9 = get_time();
 
 	//================================================================================80
@@ -429,10 +433,10 @@ int main(int argc, char *argv []){
 	cudaMemcpy(image, d_I, mem_size, cudaMemcpyDeviceToHost);
 
 	checkCUDAError("copy back");
-	double end_timer = omp_get_wtime();
-	printf("Time10 - GPU_Setup: %.8f\n",(end_timer-start_timer));
+	//double end_timer = omp_get_wtime();
+	//printf("Time10 - GPU_Setup: %.8f\n",(end_timer-start_timer));
 	time10 = get_time();
-
+	//stage_minus_start
 	//================================================================================80
 	// 	WRITE IMAGE AFTER PROCESSING
 	//================================================================================80
@@ -443,9 +447,9 @@ int main(int argc, char *argv []){
 					Nc,
 					1,
 					255);
-
+	
 	time11 = get_time();
-
+	//stage_minus_end
 	//================================================================================80
 	//	DEALLOCATE
 	//================================================================================80
@@ -469,7 +473,7 @@ int main(int argc, char *argv []){
 	cudaFree(d_dW);
 	cudaFree(d_sums);
 	cudaFree(d_sums2);
-
+	//stage3_end
 	time12 = get_time();
 
 	//================================================================================80
@@ -492,6 +496,10 @@ int main(int argc, char *argv []){
 	printf("Total time:\n");
 	printf("%.12f s\n", 																					(float) (time12-time0) / 1000000);
 
+	printf("stage1 :%.12f s\n", 																					(float) (time6-time_start) / 1000000);
+	printf("stage2 :%.12f s\n", 																					(float) (time9-time6) / 1000000);
+	printf("stage3 :%.12f s\n", 																					(float) (time12-time9-(time11-time10)) / 1000000);
+	printf("total :%.12f s\n", 																					(float) (time12-time_start-(time11-time10)) / 1000000);
 }
 
 //====================================================================================================100

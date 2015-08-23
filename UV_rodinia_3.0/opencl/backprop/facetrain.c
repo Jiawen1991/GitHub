@@ -24,9 +24,9 @@ void backprop_face()
   double start = omp_get_wtime();
   bpnn_train_kernel(net, &out_err, &hid_err);
 //timer_end
+  bpnn_free(net);
   double end = omp_get_wtime();
        printf("%.8f\n",(end-start));
-  bpnn_free(net);
   printf("\nFinish the training for one iteration\n");
 }
 

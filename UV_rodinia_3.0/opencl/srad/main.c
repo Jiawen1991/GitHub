@@ -155,9 +155,9 @@ main(	int argc,
 	//====================================================================================================100
 	// 	End
 	//====================================================================================================100
-
+	//stage1_start
 	time2 = get_time();
-	double start_timer = omp_get_wtime();
+	//double start_timer = omp_get_wtime();
 	//======================================================================================================================================================150
 	// 	SETUP
 	//======================================================================================================================================================150
@@ -194,7 +194,8 @@ main(	int argc,
 	iS[Nr-1] = Nr-1;														// changes IMAGE bottom row index from Nr to Nr-1 
 	jW[0]    = 0;															// changes IMAGE leftmost column index from -1 to 0
 	jE[Nc-1] = Nc-1;														// changes IMAGE rightmost column index from Nc to Nc-1
-
+	//stage1_end
+	//stage2_start
 	time3= get_time();
 
 	//======================================================================================================================================================150
@@ -215,10 +216,11 @@ main(	int argc,
 								iter,											// primary loop
 								mem_size_i,
 								mem_size_j);
-
+	//stage2_end
+	//stage_minus_start
 	time4 = get_time();
 
-	double end_timer = omp_get_wtime();
+	//double end_timer = omp_get_wtime();
 	//======================================================================================================================================================150
 	// 	WRITE OUTPUT IMAGE TO FILE
 	//======================================================================================================================================================150
@@ -229,7 +231,8 @@ main(	int argc,
 					Nc,
 					1,
 					255);
-
+	//stage_minus_end
+	//stage3_start
 	time5 = get_time();
 	//======================================================================================================================================================150
 	// 	FREE MEMORY
@@ -241,7 +244,7 @@ main(	int argc,
 	free(iS); 
 	free(jW); 
 	free(jE);
-
+	//stage3_end
 	time6 = get_time();
 
 	//======================================================================================================================================================150
@@ -256,8 +259,12 @@ main(	int argc,
 	printf("%.12f s, %.12f % : WRITE OUTPUT IMAGE TO FILE\n", 							(fp) (time5-time4) / 1000000, (fp) (time5-time4) / (fp) (time5-time0) * 100);
 	printf("%.12f s, %.12f % : FREE MEMORY\n", 											(fp) (time6-time5) / 1000000, (fp) (time6-time5) / (fp) (time5-time0) * 100);
 	printf("Total time:\n");
-	printf("%.12f s\n", 																(fp) (time5-time0) / 1000000);
-	printf("Time4-Time2: %.8f\n",(end_timer-start_timer));
+	printf("Test time: %.12f s\n", 																(fp) (time6-time2-(time5-time4)) / 1000000);
+	//printf("Time4-Time2: %.8f\n",(end_timer-start_timer));
+	printf("stage1: %.12f s\n", 																(fp) (time3-time2) / 1000000);
+	printf("stage2: %.12f s\n", 																(fp) (time4-time3) / 1000000);
+	printf("stage3: %.12f s\n", 																(fp) (time6-time5) / 1000000);
+	printf("total: %.12f s\n", 																(fp) (time6-time2-(time5-time4)) / 1000000);
 
 }
 

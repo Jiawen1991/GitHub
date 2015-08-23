@@ -333,12 +333,12 @@ void run(int argc, char** argv)
 	printf("Ending simulation\n");
     cudaMemcpy(MatrixOut, MatrixTemp[ret], sizeof(float)*size, cudaMemcpyDeviceToHost);
     //timer    
-    double end = omp_get_wtime();
-    printf("%.8f",(end-start));
-    writeoutput(MatrixOut,grid_rows, grid_cols, ofile);
 
     cudaFree(MatrixPower);
     cudaFree(MatrixTemp[0]);
     cudaFree(MatrixTemp[1]);
+    double end = omp_get_wtime();
+    printf("%.8f",(end-start));
+    writeoutput(MatrixOut,grid_rows, grid_cols, ofile);
     free(MatrixOut);
 }

@@ -71,7 +71,7 @@ kernel_gpu_opencl_wrapper(	int xmax,
 	long long timekernel = 0;
 	long long timecopyout = 0;
 	long long timeother;
-
+	//stage1_start
 	time0 = get_time();
 
 	int i;
@@ -246,7 +246,7 @@ kernel_gpu_opencl_wrapper(	int xmax,
 	// cudaThreadSynchronize();
 
 	time1 = get_time();
-	double start_timer = omp_get_wtime();
+//	double start_timer = omp_get_wtime();
 	//======================================================================================================================================================150
 	//	ALLOCATE MEMORY
 	//======================================================================================================================================================150
@@ -310,7 +310,7 @@ kernel_gpu_opencl_wrapper(	int xmax,
 							&error );
 	if (error != CL_SUCCESS) 
 		fatal_CL(error, __LINE__);
-
+	
 	time2 = get_time();
 
 	//======================================================================================================================================================150
@@ -356,8 +356,8 @@ kernel_gpu_opencl_wrapper(	int xmax,
 			// // }
 		// // }
 	// // }
-	double end_timer = omp_get_wtime();
-	printf("Time3-Time1 : %.8f\n",(end_timer - start_timer));
+//	double end_timer = omp_get_wtime();
+//	printf("Time3-Time1 : %.8f\n",(end_timer - start_timer));
 	time3 = get_time();
 
 	//======================================================================================================================================================150
@@ -406,7 +406,7 @@ kernel_gpu_opencl_wrapper(	int xmax,
 	printf("\t%15.12f s, %15.12f % : GPU: OTHER\n", 								(float) (timeother) / 1000000, (float) (timeother) / (float) (time4-time0) * 100);
 
 	printf("%15.12f s, %15.12f % : CPU: FREE GPU MEMORY\n", 						(float) (time4-time3) / 1000000, (float) (time4-time3) / (float) (time4-time0) * 100);
-	printf("Total time:\n");
+	printf("Total time 1:\n");
 	printf("%.12f s\n", 															(float) (time4-time0) / 1000000);
 
 	//======================================================================================================================================================150

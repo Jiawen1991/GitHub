@@ -16,7 +16,7 @@
 #include <fstream>
 #include <math.h>
 #include "CLHelper.h" 
- 
+#include "omp.h" 
 /*
  * Options 
  * 
@@ -204,7 +204,8 @@ inline void compute_flux_contribution(float& density, float3& momentum, float& d
  */
 int main(int argc, char** argv){
   printf("WG size of kernel:initialize = %d, WG size of kernel:compute_step_factor = %d, WG size of kernel:compute_flux = %d, WG size of kernel:time_step = %d\n", BLOCK_SIZE_1, BLOCK_SIZE_2, BLOCK_SIZE_3, BLOCK_SIZE_4);
-
+	double stage1_start,stage2_start,stage3_start,stage3_end;
+	 stage1_start = omp_get_wtime();
 	if (argc < 2){
 		std::cout << "specify data file name and [device type] [device id]" << std::endl;
 		return 0;
@@ -344,7 +345,7 @@ int main(int argc, char** argv){
 		_clFinish();
 		// these need to be computed the first time in order to compute time step
 		std::cout << "Starting..." << std::endl;
-
+		stage2_start = omp_get_wtime();
 		// Begin iterations
 		for(int i = 0; i < iterations; i++){
 			copy<float>(old_variables, variables, nelr*NVAR);
@@ -357,6 +358,7 @@ int main(int argc, char** argv){
 				time_step(j, nelr, old_variables, variables, step_factors, fluxes);
 			}
 		}
+		 stage3_start = omp_get_wtime();
 		_clFinish();
 		std::cout << "Saving solution..." << std::endl;
 		dump(variables, nel, nelr);
@@ -412,6 +414,11 @@ int main(int argc, char** argv){
 		_clFree(step_factors);
 		_clRelease();		
 	}
-		
+	 stage3_end = omp_get_wtime();
+	printf("stage1: %.8f",(stage2_start-stage1_start));
+	printf("stage2: %.8f",(stage3_start-stage2_start));
+	printf("stage3: %.8f\n",(stage3_end-stage3_start));
+	printf("total: %.8f",(stage3_end-stage1_start));
+	
 	return 0;
 }

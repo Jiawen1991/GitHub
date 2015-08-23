@@ -31,7 +31,7 @@ int work(	int xmax,
 	long long time3;
 	long long time4;
 	long long time5;
-
+	//stage1_start
 	time0 = get_time();
 
 	//============================================================60
@@ -138,9 +138,10 @@ int work(	int xmax,
 					1,
 					0);
 	}
-
+	//stage1_end
+	//stage2_start
 	time3 = get_time();
-	double start_timer = omp_get_wtime();
+	//double start_timer = omp_get_wtime();
 	//================================================================================80
 	//	EXECUTION
 	//================================================================================80
@@ -163,8 +164,8 @@ int work(	int xmax,
 		}
 
 	}
-	double end_timer = omp_get_wtime();
-	printf("Before_output-Time3 : %.8f\n",(end_timer-start_timer));
+	//double end_timer = omp_get_wtime();
+	//printf("Before_output-Time3 : %.8f\n",(end_timer-start_timer));
 
 	  FILE * pFile;
 	  pFile = fopen ("output.txt","w");
@@ -188,7 +189,8 @@ int work(	int xmax,
 	  fclose (pFile);
 
 
-
+	//stage2_end
+	//stage3_start
 	time4 = get_time();
 
 	//================================================================================80
@@ -216,7 +218,6 @@ int work(	int xmax,
 	}
 	free(params);
 
-	time5= get_time();
 
 	// com
 	free(com);
@@ -226,7 +227,8 @@ int work(	int xmax,
 	cudaFree(d_finavalu);
 	cudaFree(d_params);
 	cudaFree(d_com);
-
+	//stage3_end	
+	time5= get_time();
 	//================================================================================80
 	//		DISPLAY TIMING
 	//================================================================================80
@@ -239,6 +241,10 @@ int work(	int xmax,
 	printf("%.12f s, %.12f % : FREE MEMORY\n", 																(float) (time5-time4) / 1000000, (float) (time5-time4) / (float) (time5-time0) * 100);
 	printf("Total time:\n");
 	printf("%.12f s\n", 																											(float) (time5-time0) / 1000000);
+	printf("stage1:%.12f s\n", 																											(float) (time3-time0) / 1000000);
+	printf("stage2:%.12f s\n", 																											(float) (time4-time3) / 1000000);
+	printf("stage3:%.12f s\n", 																											(float) (time5-time4) / 1000000);
+	printf("total:%.12f s\n", 																											(float) (time5-time0) / 1000000);
 
 //====================================================================================================100
 //	END OF FILE

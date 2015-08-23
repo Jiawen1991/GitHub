@@ -6,7 +6,7 @@
 #include <helper_timer.h>
 #include <iostream>
 #include <fstream>
-
+#include "omp.h"
  
  
 /*
@@ -419,7 +419,7 @@ void time_step(int j, int nelr, float* old_variables, float* variables, float* s
 int main(int argc, char** argv)
 {
   printf("WG size of kernel:initialize = %d, WG size of kernel:compute_step_factor = %d, WG size of kernel:compute_flux = %d, WG size of kernel:time_step = %d\n", BLOCK_SIZE_1, BLOCK_SIZE_2, BLOCK_SIZE_3, BLOCK_SIZE_4);
-
+	double stage1_start = omp_get_wtime();
 	if (argc < 2)
 	{
 		std::cout << "specify data file name" << std::endl;
@@ -565,6 +565,7 @@ int main(int argc, char** argv)
 	sdkCreateTimer(&timer); 
 	sdkStartTimer(&timer); 
 	// Begin iterations
+	double stage2_start= omp_get_wtime();
 	for(int i = 0; i < iterations; i++)
 	{
 		copy<float>(old_variables, variables, nelr*NVAR);
@@ -587,7 +588,7 @@ int main(int argc, char** argv)
 	sdkStopTimer(&timer); 
 
 	std::cout  << (sdkGetAverageTimerValue(&timer)/1000.0)  / iterations << " seconds per iteration" << std::endl;
-
+	double stage3_start = omp_get_wtime();
 	std::cout << "Saving solution..." << std::endl;
 	dump(variables, nel, nelr);
 	std::cout << "Saved solution..." << std::endl;
@@ -602,8 +603,13 @@ int main(int argc, char** argv)
 	dealloc<float>(old_variables);
 	dealloc<float>(fluxes);
 	dealloc<float>(step_factors);
-
+	double stage3_end = omp_get_wtime();
 	std::cout << "Done..." << std::endl;
+	printf("stage1:%.8f\n",(stage2_start-stage1_start));
+	printf("stage2:%.8f\n",(stage3_start-stage2_start));
+	printf("stage3:%.8f\n",(stage3_end-stage3_start));
+	printf("total:%.8f\n",(stage3_end-stage1_start));
+	
 
 	return 0;
 }

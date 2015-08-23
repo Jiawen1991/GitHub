@@ -188,6 +188,7 @@ main ( int argc, char *argv[] )
 	char * source = (char *)calloc(sourcesize, sizeof(char)); 
 	if(!source) { printf("ERROR: calloc(%d) failed\n", sourcesize); return -1; }
 
+	stopwatch_start(&sw);
 	char * kernel_lud_diag   = "lud_diagonal";
 	char * kernel_lud_peri   = "lud_perimeter";
 	char * kernel_lud_inter  = "lud_internal";
@@ -239,7 +240,6 @@ main ( int argc, char *argv[] )
 	if(err != CL_SUCCESS) { printf("ERROR: clCreateBuffer d_m (size:%d) => %d\n", matrix_dim*matrix_dim, err); return -1;} 
 
 	/* beginning of timing point */
-	stopwatch_start(&sw);
 	err = clEnqueueWriteBuffer(cmd_queue, d_m, 1, 0, matrix_dim*matrix_dim*sizeof(float), m, 0, 0, 0);
 	if(err != CL_SUCCESS) { printf("ERROR: clEnqueueWriteBuffer d_m (size:%d) => %d\n", matrix_dim*matrix_dim, err); return -1; }
 	
@@ -296,11 +296,11 @@ main ( int argc, char *argv[] )
 	if(err != CL_SUCCESS) { printf("ERROR: clEnqueueReadBuffer  d_m (size:%d) => %d\n", matrix_dim*matrix_dim, err); return -1; }
 	clFinish(cmd_queue);
 	/* end of timing point */
-	stopwatch_stop(&sw);
-	printf("Time consumed(ms): %lf\n", 1000*get_interval_by_sec(&sw));
 
 	clReleaseMemObject(d_m);
 
+	stopwatch_stop(&sw);
+	printf("Time consumed(ms): %lf\n", 1000*get_interval_by_sec(&sw));
 	if (do_verify){
 		printf("After LUD\n");
 		// print_matrix(m, matrix_dim);
