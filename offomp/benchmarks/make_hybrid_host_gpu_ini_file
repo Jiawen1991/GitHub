@@ -1,0 +1,9 @@
+cat gpu0.ini gpu1.ini > gpu0-1.ini
+cat gpu0.ini gpu1.ini gpu2.ini gpu3.ini > gpu0-3.ini
+cat gpu0.ini gpu2.ini > gpu0,2.ini
+cat gpu2.ini gpu3.ini > gpu2-3.ini
+
+cat host-only.ini gpu0.ini > host-gpu0.ini
+cat host-only.ini gpu1.ini > host-gpu1.ini
+cat host-only.ini gpu0-1.ini > host-gpu0-1.ini
+cat host-only.ini gpu0-3.ini > host-gpu0-3.ini

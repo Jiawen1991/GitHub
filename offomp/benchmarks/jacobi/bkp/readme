@@ -1,0 +1,27 @@
+Input code:
+* jacobi-ompacc.c  : naive Jacobi with OpenMP accelerator directives 
+* jacobi-ompacc-opt1.c : optimized version with data mapping promoted outside of the while loop             
+
+Generated CUDA code:
+* rose_jacobi-ompacc.cu : from the naive version            
+* rose_jacobi-ompacc-opt1.cu: from the optimized version
+
+Experimental 2-D loop mapping, manual translated CUDA version
+* rose_jacobi-ompacc-opt1-2D-v0.cu  : ignore this file for now
+* rose_jacobi-ompacc-opt1-2D-v1.cu  : naive 2-D mapping
+* rose_jacobi-ompacc-opt1-2D-v2.cu  : optimize the 2-D block size  
+* rose_jacobi-ompacc-opt1-2D-v3.cu  : round-robin loop scheduling
+* rose_jacobi-ompacc-opt1-2D-v4.cu  : TODO, change the 2nd level reduction to be on GPU also
+
+To compile and run the generated CUDA files:
+[liao6@tux322:~/workspace/multi-gpu-work/benchmarks/jacobi]nvcc rose_jacobi-ompacc.cu ../libxomp/xomp.c ../libxomp/xomp_cuda_lib.cu -I ../libxomp/
+
+./a.out
+
+
+Another version of jacobi reference implementation.
+* jacobi-github.cu 
+The major differences
+* the instruction mix for stencil computation is different from ours. 
+* it uses pointer swapping for the old and new arrays
+* it uses reduction entirely on GPUs, 
