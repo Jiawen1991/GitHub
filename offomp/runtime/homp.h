@@ -164,6 +164,7 @@ typedef enum omp_event_record_method {
 #define OMP_EVENT_MSG_LENGTH 96
 #define OMP_EVENT_NAME_LENGTH 12
 
+/*omp_event is for the record and timing caclulation*/
 typedef struct omp_event {
 	omp_device_t * dev;
 	omp_dev_stream_t * stream;
