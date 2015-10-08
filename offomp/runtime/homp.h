@@ -271,8 +271,8 @@ typedef enum omp_data_map_direction {
 
 typedef enum omp_data_map_type {
 	OMP_DATA_MAP_AUTO, /* system choose, it is shared, but system will use either copy or shared depending on whether real sharing  is possible or not */
-	OMP_DATA_MAP_SHARED,
-	OMP_DATA_MAP_COPY,
+	OMP_DATA_MAP_SHARED,//for CPU
+	OMP_DATA_MAP_COPY,//for GPU
 } omp_data_map_type_t;
 
 typedef enum omp_dist_policy {
