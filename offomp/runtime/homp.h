@@ -505,7 +505,7 @@ typedef enum omp_offloading_stage {
 	OMP_OFFLOADING_NUM_STEPS, /* total number of steps */
 } omp_offloading_stage_t;
 
-/* a kernel profile keep track of info such as # of iterations, # nest loop, # loop per iteration, # store per iteration, # FP per operations
+/* a kernel profile keep track of info such as # of iterations, # nest loop, # load per iteration, # store per iteration, # FP per operations
  * data access pattern that has locality/cache access impact, etc
  */
 typedef struct omp_kernel_profile_info {
