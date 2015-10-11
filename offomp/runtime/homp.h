@@ -290,6 +290,8 @@ typedef enum omp_dist_target_type {
 } omp_dist_target_type_t;
 /**
  * Info object for dist (array and iteration)
+ * Difference between distribution and data_map: data_map is for the devices view that what kind of the data have been mapped or distributed into A devices. 
+ * For distribution, it collects that info that what kind of data AND iterations mapped or distributed into DIFFERENT divices
  */
 typedef struct omp_dist_info {
 	omp_dist_policy_t policy; /* the dist policy */
