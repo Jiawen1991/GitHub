@@ -83,8 +83,8 @@ typedef struct omp_dev_stream {
 } omp_dev_stream_t;
 
 typedef enum omp_device_mem_type { /* the mem type related to the host mem */
-	OMP_DEVICE_MEM_SHARED_CC_UMA, /* CC UMA */
-	OMP_DEVICE_MEM_SHARED_CC_NUMA, /* CC NUMA */
+	OMP_DEVICE_MEM_SHARED_CC_UMA, /* CC UMA Cache-Coherent Uniform memory access*/
+	OMP_DEVICE_MEM_SHARED_CC_NUMA, /* CC NUMA Cache-Coherent Non-uniform memory access*/
 	OMP_DEVICE_MEM_SHARED_NCC_UMA,
 	OMP_DEVICE_MEM_SHARED_NCC_NUMA,
 	OMP_DEVICE_MEM_SHARED,
@@ -92,7 +92,7 @@ typedef enum omp_device_mem_type { /* the mem type related to the host mem */
 	OMP_DEVICE_MEM_DISCRETE, /* different memory and different memory space */
 }omp_device_mem_type_t;
 
-#define omp_device_mem_shared(mem_type) (mem_type <= OMP_DEVICE_MEM_SHARED)
+#define omp_device_mem_shared(mem_type) (mem_type <= OMP_DEVICE_MEM_SHARED)//If the value of mem_type <= the value of OMP_DEVICE_MEM_SHARED, run omp_device_mem_shared(mem_type) function
 #define omp_device_mem_vas(mem_type) (mem_type == OMP_DEVICE_MEM_VIRTUAL_AS)
 #define omp_device_mem_discrete(mem_type) (mem_type == OMP_DEVICE_MEM_DISCRETE)
 
