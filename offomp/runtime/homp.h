@@ -143,8 +143,8 @@ struct omp_device {
 	 * reuse the data map created in the upper-level enclosing offloading operations (typically target data).
 	 */
 	int offload_stack_top;
-
-	omp_dev_stream_t devstream; /* per dev stream */
+	
+	omp_dev_stream_t devstream; /* per dev stream. Purpose: for queuing and sync, which means you can set up the sequence for every device to deal with the dist/map asyn/sync*/
 
 	omp_data_map_t ** resident_data_maps; /* a link-list or an array for resident data maps (data maps cross multiple offloading region */
 
