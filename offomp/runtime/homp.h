@@ -70,7 +70,7 @@ extern omp_device_type_info_t omp_device_types[];
 
 /**
  * each stream also provide a limited number of event objects for collecting timing
- * information.
+ * information. It controls every device for the queuing and sync purpose.
  */
 typedef struct omp_dev_stream {
 	omp_device_t * dev;
