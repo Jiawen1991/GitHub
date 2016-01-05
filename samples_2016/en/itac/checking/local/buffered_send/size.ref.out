@@ -1,0 +1,143 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_ACCESS OFF
+[0] INFO: CHECK LOCAL:MEMORY:INITIALIZATION OFF
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK LOCAL:BUFFER:INSUFFICIENT_BUFFER ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+buffer size 111, message tag 100, size 16: okay
+buffer size 131167, message tag 200, size 131072: okay
+buffer size 131167, message tag 300, size 131072: okay
+buffer size 393834, small bsend message, tag 400, size 16: okay
+buffer size 393834, large bsend message 1, tag 401, size 131072: okay
+buffer size 393834, small ibsend message, tag 402, size 16: okay
+buffer size 393834, large bsend message 2, tag 403, size 131072: okay
+buffer size 393834, small bsend_init message, tag 404, size 16: okay
+buffer size 393834, large bsend message 3, tag 405, size 131072: okay
+
+[0] ERROR: LOCAL:BUFFER:INSUFFICIENT_BUFFER: error
+[0] ERROR:    Buffer [0x9224c0, 0x92252e[ of size 110 cannot store message of size 111.
+[0] ERROR:    Free space [0x9224c0, 0x92252e[, 110 bytes.
+[0] ERROR:    Check buffer handling (use larger buffer in MPI_Buffer_attach(),
+[0] ERROR:    receive the oldest message(s) to free up space before buffering new ones,
+[0] ERROR:    check for race conditions between buffering and receiving messages, etc).
+[0] ERROR:    Note that message sizes are calculated using the worst-case scenario that
+[0] ERROR:    the application has to be prepared for: MPI_Pack_size() + MPI_BSEND_OVERHEAD.
+[0] ERROR:    New message of size 111 was to be sent by:
+[0] ERROR:       MPI_Bsend(*buf=0x7485c0, count=16, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD)
+[0] ERROR:       testpairs (local/buffered_send/size.c:83)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+buffer size 110, message tag 100, size 16: not sent
+
+[0] ERROR: LOCAL:BUFFER:INSUFFICIENT_BUFFER: error
+[0] ERROR:    Buffer [0x2a966c9010, 0x2a966e906e[ of size 131166 cannot store message of size 131167.
+[0] ERROR:    Free space [0x2a966c9010, 0x2a966e906e[, 131166 bytes.
+[0] ERROR:    Check buffer handling (use larger buffer in MPI_Buffer_attach(),
+[0] ERROR:    receive the oldest message(s) to free up space before buffering new ones,
+[0] ERROR:    check for race conditions between buffering and receiving messages, etc).
+[0] ERROR:    Note that message sizes are calculated using the worst-case scenario that
+[0] ERROR:    the application has to be prepared for: MPI_Pack_size() + MPI_BSEND_OVERHEAD.
+[0] ERROR:    New message of size 131167 was to be sent by:
+[0] ERROR:       MPI_Bsend(*buf=0x7485e0, count=131072, datatype=MPI_CHAR, dest=1, tag=200, comm=MPI_COMM_WORLD)
+[0] ERROR:       testpairs (local/buffered_send/size.c:123)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+buffer size 131166, message tag 200, size 131072: not sent
+
+[0] ERROR: LOCAL:BUFFER:INSUFFICIENT_BUFFER: error
+[0] ERROR:    Buffer [0x9224c0, 0x92252e[ of size 110 cannot store message of size 131167.
+[0] ERROR:    Free space [0x9224c0, 0x92252e[, 110 bytes.
+[0] ERROR:    Check buffer handling (use larger buffer in MPI_Buffer_attach(),
+[0] ERROR:    receive the oldest message(s) to free up space before buffering new ones,
+[0] ERROR:    check for race conditions between buffering and receiving messages, etc).
+[0] ERROR:    Note that message sizes are calculated using the worst-case scenario that
+[0] ERROR:    the application has to be prepared for: MPI_Pack_size() + MPI_BSEND_OVERHEAD.
+[0] ERROR:    New message of size 131167 was to be sent by:
+[0] ERROR:       MPI_Bsend(*buf=0x7485e0, count=131072, datatype=MPI_CHAR, dest=1, tag=300, comm=MPI_COMM_WORLD)
+[0] ERROR:       testpairs (local/buffered_send/size.c:162)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+buffer size 110, message tag 300, size 131072: not sent
+buffer size 393828, small bsend message, tag 400, size 16: okay
+buffer size 393828, large bsend message 1, tag 401, size 131072: okay
+buffer size 393828, small ibsend message, tag 402, size 16: okay
+buffer size 393828, large bsend message 2, tag 403, size 131072: okay
+buffer size 393828, small bsend_init message, tag 404, size 16: okay
+
+[0] ERROR: LOCAL:BUFFER:INSUFFICIENT_BUFFER: error
+[0] ERROR:    Buffer [0x2a966c9010, 0x2a96729274[ of size 393828 cannot store message of size 131167.
+[0] ERROR:    Free space at the end [0x2a9670921b, 0x2a96729274[, 131161 bytes, and
+[0] ERROR:    at the beginning [0x2a966c9010, 0x2a966c9010[, 0 bytes.
+[0] ERROR:    Check buffer handling (use larger buffer in MPI_Buffer_attach(),
+[0] ERROR:    receive the oldest message(s) to free up space before buffering new ones,
+[0] ERROR:    check for race conditions between buffering and receiving messages, etc).
+[0] ERROR:    Note that message sizes are calculated using the worst-case scenario that
+[0] ERROR:    the application has to be prepared for: MPI_Pack_size() + MPI_BSEND_OVERHEAD.
+[0] ERROR:    Active messages are listed with most recent one first.
+[0] ERROR:    New message of size 131167 was to be sent by:
+[0] ERROR:       MPI_Bsend(*buf=0x7485e0, count=131072, datatype=MPI_CHAR, dest=1, tag=405, comm=MPI_COMM_WORLD)
+[0] ERROR:       testpairs (local/buffered_send/size.c:264)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+[0] ERROR:    Active message [0x2a967091ac, 0x2a9670921b[, size 111:
+[0] ERROR:       MPI_Start(*request=0x7fbfffea3c->0x2c000005)
+[0] ERROR:       testpairs (local/buffered_send/size.c:253)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+[0] ERROR:    Active message [0x2a966e914d, 0x2a967091ac[, size 131167:
+[0] ERROR:       MPI_Bsend(*buf=0x7485e0, count=131072, datatype=MPI_CHAR, dest=1, tag=403, comm=MPI_COMM_WORLD)
+[0] ERROR:       testpairs (local/buffered_send/size.c:235)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+[0] ERROR:    Active message [0x2a966e90de, 0x2a966e914d[, size 111:
+[0] ERROR:       MPI_Ibsend(*buf=0x7485c0, count=16, datatype=MPI_CHAR, dest=1, tag=402, comm=MPI_COMM_WORLD, *request=0x7fbfffea3c)
+[0] ERROR:       testpairs (local/buffered_send/size.c:221)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+[0] ERROR:    Active message [0x2a966c907f, 0x2a966e90de[, size 131167:
+[0] ERROR:       MPI_Bsend(*buf=0x7485e0, count=131072, datatype=MPI_CHAR, dest=1, tag=401, comm=MPI_COMM_WORLD)
+[0] ERROR:       testpairs (local/buffered_send/size.c:210)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+[0] ERROR:    Active message [0x2a966c9010, 0x2a966c907f[, size 111:
+[0] ERROR:       MPI_Bsend(*buf=0x7485c0, count=16, datatype=MPI_CHAR, dest=1, tag=400, comm=MPI_COMM_WORLD)
+[0] ERROR:       testpairs (local/buffered_send/size.c:199)
+[0] ERROR:       wrongbuffer (local/buffered_send/size.c:356)
+[0] ERROR:       main (local/buffered_send/size.c:376)
+buffer size 393828, large bsend message 3, tag 405, size 131072: not sent
+
+[0] INFO: LOCAL:BUFFER:INSUFFICIENT_BUFFER: found 4 times (4 errors + 0 warnings), 0 reports were suppressed
+[0] INFO: Found 4 problems (4 errors + 0 warnings), 0 reports were suppressed.
+
+0.13user 0.21system 0:06.12elapsed 5%CPU (0avgtext+0avgdata 0maxresident)k
+0inputs+0outputs (0major+7294minor)pagefaults 0swaps

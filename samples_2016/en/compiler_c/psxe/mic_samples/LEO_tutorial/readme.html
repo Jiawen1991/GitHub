@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>LEO_tutorial</title></head>
+<body>
+<table class="MsoNormalTable" style="color: white; font-family: Intel Clear; width: 100%; height: 89px;" border="0" cellpadding="0">
+<tbody>
+<tr style="">
+<td style="border: 1pt solid rgb(221, 221, 221); padding: 3.75pt; background: rgb(0, 113, 197) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; height: 53px;">
+<h2 style="font-family: Intel Clear;"><span class="SpellE">LEO_tutorial</span></h2>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Intel Clear;"><span class="MsoIntenseEmphasis"><span style="font-weight: bold;"></span></span>
+<h5><span class="MsoIntenseEmphasis"><big><span style="font-weight: bold;">Overview</span></big><o:p></o:p></span></h5>
+</div>
+<div style="margin-left: 40px; font-family: Intel Clear;">This tutorial
+illustrates the introductory level use of a system with the Intel® Xeon
+Phi&#8482; coprocessor to execute an application on both the host CPU and the
+coprocessor. It illustrates how to compile the source code into an
+application that executes on both the host and target, and define code
+sections that execute only on the host.</div>
+<h5><span class="MsoIntenseEmphasis"><big style="font-family: Intel Clear;"><span style="font-weight: bold;">System
+Requirements</span></big><o:p></o:p></span><span style="font-family: Intel Clear;"></span></h5>
+<span style="font-family: Intel Clear;"></span>
+<div style="margin-left: 40px;"><span style="font-family: Intel Clear;"></span><span style="font-family: Intel Clear;">Minimum
+requirements include an </span><span style="font-family: Intel Clear;">Intel® 64 architecture processor-based </span><span style="font-family: Intel Clear;">host
+system with an
+Intel® Xeon Phi&#8482; coprocessor, a supported version of the Linux* operating system, and the Intel® Manycore Platform Software
+Stack (Intel® MPSS). </span><span style="font-family: Intel Clear;">Refer to the Intel® Parallel Studio XE product
+Release Notes for details on the complete system requirements.</span><span style="font-family: Intel Clear;"></span></div>
+<h5><span class="MsoIntenseEmphasis"><big style="font-family: Intel Clear;"><span style="font-weight: bold;">Build
+Instructions</span></big><o:p></o:p></span><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"></span></span></h5>
+<div style="margin-left: 40px;"><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;">Expand&nbsp;</span></span><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;">the TAR .gz file to a writable directory of your choice.&nbsp;</span></span><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"> Refer to the product documentation tutorials collection for the <span style="font-weight: bold;">Tutorial: Using the Intel® Xeon Phi&#8482; Coprocessor</span> guide containing details on building and running this tutorial.</span></span></div>
+<p><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"></span></span></p>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="font-family: Intel Clear; text-align: center; background-color: silver; white-space: nowrap;">
+<h4>Tutorial Name</h4>
+</td>
+<td style="font-family: Intel Clear; background-color: silver;">
+<h4>Description</h4>
+</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">tbo_sort</td>
+<td style="font-family: Intel Clear;">Demonstrates use of Language Extensions for Offload for the data marshalling and virtual shared models including <span style="font-family: Courier New;">#pragma offload</span>, <span style="font-family: Courier New;">_Cilk_shared/_Cilk_offload_to</span>, the <span style="font-family: Courier New;">_Offload_number_of_devices()</span>
+(C/C++) API,&nbsp;  <span style="font-family: Courier New;">#pragma
+offload_attribute</span> push/pop, &nbsp;and the <span style="font-family: Courier New;">_Offload_shared_aligned_malloc()</span> 
+(C/C++) API</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tbody>
+</table>
+<p><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"></span></span></p>
+<table style="width: 100%; height: 290px;" class="MsoNormalTable" border="0" cellpadding="0">
+<tbody>
+<tr style="">
+<td style="border: 1pt solid rgb(221, 221, 221); padding: 3.75pt; background: rgb(0, 113, 197) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+<p class="MsoNormal"><span style="color: white; font-family: Intel Clear;">Optimization
+Notice</span><span style="line-height: 115%; font-family: 'Intel Clear','sans-serif'; color: white; font-size: 12pt;"><o:p></o:p></span></p>
+</td>
+</tr>
+<tr style="">
+<td style="border: 1pt solid rgb(221, 221, 221); padding: 3.75pt;" valign="top">
+<p class="MsoNormal" style="line-height: 120%; vertical-align: top; font-family: Intel Clear;">Intel's
+compilers may or may not optimize to the same degree for non-Intel
+microprocessors for optimizations that are not unique to Intel
+microprocessors. These optimizations include SSE2, SSE3, and SSSE3
+instruction sets and other optimizations. Intel does not guarantee the
+availability, functionality, or effectiveness of any optimization on
+microprocessors not manufactured by Intel. Microprocessor-dependent
+optimizations in this product are intended for use with Intel
+microprocessors. Certain optimizations not specific to Intel
+microarchitecture <span class="GramE">are</span>
+reserved for Intel microprocessors. Please refer to the applicable
+product User and Reference Guides for more information <span class="SpellE">regardîng</span> the specific
+instruction sets covered by this notice.<o:p></o:p></p>
+<p style="line-height: 120%; vertical-align: top;" class="MsoNormal"><span style="font-family: Intel Clear;">Notice
+revision #20110804</span><span style="line-height: 120%; font-family: 'Intel Clear','sans-serif'; font-size: 12pt;"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="font-family: Intel Clear;">Copyright
+© 2015 Intel Corporation. All Rights Reserved<o:p></o:p></p>
+<p><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;">*
+Other names and brands may be claimed as the property of others</span>
+<o:p></o:p></span></p>
+</body></html>

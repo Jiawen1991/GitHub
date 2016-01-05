@@ -1,0 +1,76 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_ACCESS OFF
+[0] INFO: CHECK LOCAL:MEMORY:INITIALIZATION OFF
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK LOCAL:BUFFER:INSUFFICIENT_BUFFER ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+small bsend message tag 101: okay
+small bsend message tag 100: okay
+large bsend message tag 103: okay
+small bsend message tag 102: okay
+small bsend message tag 201: okay
+small bsend message tag 202: okay
+
+[0] ERROR: LOCAL:BUFFER:INSUFFICIENT_BUFFER: error
+[0] ERROR:    Buffer [0x79ae10, 0x79b22d[ of size 1053 cannot store message of size 607.
+[0] ERROR:    No free space left.
+[0] ERROR:    Check buffer handling (use larger buffer in MPI_Buffer_attach(),
+[0] ERROR:    receive the oldest message(s) to free up space before buffering new ones,
+[0] ERROR:    check for race conditions between buffering and receiving messages, etc).
+[0] ERROR:    Note that message sizes are calculated using the worst-case scenario that
+[0] ERROR:    the application has to be prepared for: MPI_Pack_size() + MPI_BSEND_OVERHEAD.
+[0] ERROR:    Active messages are listed with most recent one first.
+[0] ERROR:    New message of size 607 was to be sent by:
+[0] ERROR:       MPI_Bsend(*buf=0x7276a0, count=512, datatype=MPI_CHAR, dest=1, tag=203, comm=MPI_COMM_WORLD)
+[0] ERROR:       failures (local/buffered_send/policy.c:305)
+[0] ERROR:       main (local/buffered_send/policy.c:369)
+[0] ERROR:    Completed message [0x79b0ce, 0x79b22d[, size 351:
+[0] ERROR:       MPI_Bsend(*buf=0x7275a0, count=256, datatype=MPI_CHAR, dest=1, tag=202, comm=MPI_COMM_WORLD)
+[0] ERROR:       failures (local/buffered_send/policy.c:258)
+[0] ERROR:       main (local/buffered_send/policy.c:369)
+[0] ERROR:    Completed message [0x79af6f, 0x79b0ce[, size 351:
+[0] ERROR:       MPI_Bsend(*buf=0x7275a0, count=256, datatype=MPI_CHAR, dest=1, tag=201, comm=MPI_COMM_WORLD)
+[0] ERROR:       failures (local/buffered_send/policy.c:250)
+[0] ERROR:       main (local/buffered_send/policy.c:369)
+[0] ERROR:    Active message [0x79ae10, 0x79af6f[, size 351:
+[0] ERROR:       MPI_Bsend(*buf=0x7275a0, count=256, datatype=MPI_CHAR, dest=1, tag=200, comm=MPI_COMM_WORLD)
+[0] ERROR:       failures (local/buffered_send/policy.c:242)
+[0] ERROR:       main (local/buffered_send/policy.c:369)
+small bsend message tag 200: okay
+large bsend message tag 203: not sent
+
+[0] INFO: LOCAL:BUFFER:INSUFFICIENT_BUFFER: found 1 time (1 error + 0 warnings), 0 reports were suppressed
+[0] INFO: Found 1 problem (1 error + 0 warnings), 0 reports were suppressed.
+
+0.12user 0.21system 0:07.09elapsed 4%CPU (0avgtext+0avgdata 0maxresident)k
+0inputs+0outputs (0major+7282minor)pagefaults 0swaps

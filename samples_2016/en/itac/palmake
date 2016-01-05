@@ -1,0 +1,71 @@
+#!/bin/sh
+
+##################################################################
+# Sets GMAKE to $1 if $1 is executable, otherwise to UNKNOWN
+##################################################################
+check_gmake ()
+{
+    if type $1 > /dev/null 2>&1; then
+	if $1 -v > /dev/null 2>&1; then
+	    echo "\$GMAKE = $1"
+	    GMAKE=$1
+	    return 0
+	fi
+    fi
+    GMAKE=NOT_FOUND
+}
+
+##################################################################
+# Sets GMAKE to the installed GNU make if available, otherwise exits
+##################################################################
+set_gmake ()
+{
+    if test -n "$GMAKE" ; then
+	check_gmake $GMAKE
+    else
+	GMAKE=NOT_FOUND
+    fi
+
+    if test $GMAKE = NOT_FOUND ; then
+	check_gmake gmake
+	if test $GMAKE = NOT_FOUND ; then
+	    check_gmake gnumake
+	    if test $GMAKE = NOT_FOUND ; then
+		check_gmake make
+                if test $GMAKE = NOT_FOUND ; then
+		    echo "GMAKE not set and gmake and gnumake not found."
+                    echo "Please enter location of gmake"
+		    read GMAKE
+		    check_gmake $GMAKE
+		    if test $GMAKE = NOT_FOUND ; then
+		        echo "$GMAKE not found."
+		        echo "Install GNU make first and set GMAKE."
+		        echo "Cannot continue. Exiting."
+		        exit 1
+                    fi
+		fi
+	    fi
+	fi
+    fi
+}
+
+if test -z "$VT_ROOT" ; then
+	echo "\$VT_ROOT not set (needed for \$VT_ROOT/include and \$VT_ROOT/lib)."
+	echo "Please enter VT_ROOT"
+	read VT_ROOT
+fi
+
+set_gmake
+
+export VT_ROOT
+
+echo "\$VT_ROOT = $VT_ROOT"
+echo "\$GMAKE    = $GMAKE"
+
+echo 
+echo "Running $GMAKE $*"
+
+$GMAKE $*
+
+echo 
+echo "Done."

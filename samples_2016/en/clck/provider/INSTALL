@@ -1,0 +1,6 @@
+To install the data provider 'duck' sample, execute the following
+commands from the <installdir>/samples/provider sub-directory:
+
+% cp duck.xml ../../provider/etc
+% mkdir ../../provider/share/duck
+% cp duck.sh ../../provider/share/duck

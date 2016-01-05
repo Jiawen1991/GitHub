@@ -1,0 +1,12 @@
+To install the connector extension 'duck' sample, execute the
+following commands from the <installdir>/samples/connector
+sub-directory:
+
+% make
+% cp libduck.so ../../connector/intel64/cpp
+
+Note: GCC version 4.9.1 or later is needed.
+
+Using an editor, add <entry>duck</entry> to the <clck-checks> block in
+either your personal copy of clck.xml, or ../../etc/clck.xml to make
+the change globally.

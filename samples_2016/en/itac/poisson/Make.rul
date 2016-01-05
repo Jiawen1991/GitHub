@@ -1,0 +1,27 @@
+
+.SUFFIXES: 
+.SUFFIXES: .F90 .f90 .c .f .mod .o
+
+SHELL=/bin/sh
+
+default: prep $(EXEC)
+
+prep:
+	rm -f $(RMFILES)
+
+$(EXEC): $(EXTOBJ) $(MOD) $(OBJ)
+	$(LINKER) -o $@ $(LDFLAGS)  $(MPIMOD) $(MOD) $(OBJ) $(EXTOBJ) $(LIB_PATH) $(LIBS)
+
+clean:
+	/bin/rm -f *.o *.mod $(OBJ) $(EXTOBJ) $(MOD) PI* 
+
+.c.o:
+	$(CC) $(CFLAGS) -c $*.c
+.f.o:
+	$(F77) $(F77FLAGS) -c $*.f
+.f90.o:
+	$(F90) $(F90FLAGS) -c $*.f90
+.F90.o:
+	$(F90) $(F90FLAGS) -c $*.F90
+.f90.mod:
+	$(F90) $(F90FLAGS) -c $*.f90

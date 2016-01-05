@@ -1,0 +1,88 @@
+    =================================================
+    Intel(R) Trace Collector Instrumentation Examples
+    =================================================
+
+This directory contains a small collection of example programs that have
+been instrumented with the Intel(R) Trace Collector (ITC) API. Please refer
+to the examples' README files for details about the particular examples.
+
+You will need gnumake (version 3.7 or later) so as to use the "GNUmakefile"
+file that is provided. A GNU version of "make" is available from your
+friendly GNU archive, e.g. from:
+
+            https://www.gnu.org/software/make/
+
+For a successful compilation, the root directory of your ITC
+installation has to be known to your login session. Thus, set the
+environment variable VT_ROOT such that there is at least
+$VT_ROOT/include and $VT_ROOT/lib defined with the ITC include files
+and libraries. This environment variable is set automatically by
+sourcing either "sourceme.sh" (". sourceme.sh" in command-line shells
+compatible with Bourne shell), or sourceme.csh ("source sourceme.csh"
+in command-line shells compatible with csh).
+
+A script is provided to easily compile the examples. Simply type:
+
+                      ./palmake [target]
+
+to build an example. If "VT_ROOT" is not set, you will be prompted to enter it.
+If you know where your GNU version of "make" is, you can proceed to set "VT_ROOT",
+and then type gmake, gnumake or whatever your GNU make is called.
+
+You will need a license for ITC to install it and run any of the
+examples. Instructions for obtaining a license file is explained in the PDF
+document $VT_ROOT/doc/Intel_Trace_Collector_Users_Guide.pdf. To check compatibility
+of ITC with your MPI, use the GNUmakefile target "mpiconstants", and run it with
+one process. Then compare the output with the contents of the file "mpiconstants.out".
+
+Example programs are a "jacobi-solver", written in C and Fortran, and the test
+program "allpair" from an MPICH distribution. The test program "allpair" is also
+written in C and Fortran. "counterscopec.c" is an example for logging counter
+values with the ITC API in C.
+
+The above listed software applications can be linked to ITC or to the null
+library, "libVTnull.a". By default, Fortran and C versions are compiled
+and linked with the ITC library.
+
+The default targets are the ITC versions of the example programs.
+To build individual examples an intuitive naming convention is used. The prefix
+determines the library:
+
+	vt for ITC
+	vn for NULL
+
+For the "jacobi-solver" example, the postfix specifies the language:
+
+	c for C
+	f for Fortran
+
+Thus, "./palmake vtjacobif" will generate an executable "vtjacobif" from the
+Fortran source which was linked with the ITC tracing library.
+By default, "vtjacobic", "vtjacobif", "vtallpair" and "vtallpairc" will be built.
+
+To compile the examples, you might have to modify the contents of the file
+"GNUmakefile". However, it is recommended that the user try it first as provided
+since sensible settings have been chosen for various computing platforms.
+"counterscopec.c" also needs to know the correct data types for integers and
+floats of certain sizes. These are already defined in the file "config.h" that
+is provided, but they might need modification, if e.g. compiler flags are used
+to change to a different binary mode on the platform.
+
+"make" file targets are:
+
+	vtjacobic
+	vtjacobif
+	vnjacobic
+	vnjacobif
+	vtallpairc
+	vtallpair
+	vtcounterscopec
+        mpiconstants
+	vnallpairc
+	vnallpair
+	clean (removes *.o)
+ 	distclean (clean + removing execs)
+	libsvt (all vt* targets)
+	libsvn (all vn* targets)
+
+The "allpair" test programs only run if they are started with two processes.

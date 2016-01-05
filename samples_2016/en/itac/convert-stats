@@ -1,0 +1,81 @@
+#! /usr/bin/perl
+
+while( <> ) {
+    if( /^DEFACT\s+(\d+)\s+"?([^"]*)"?/ ) {
+        $DefActs{$1} = $2;
+    } elsif( /^^DEFSTATE\s+(\d+)\s+ACT\s+(\d+)\s+"?([^"]*)"?/ ) {
+        $DefStates{$1} = $3;
+        $DefStatesAct{$1} = $2;
+    } elsif( /^INFO\s+LWSTATS\s+(\d+):(\d+):(\d+):(\d+):(-?\d+):\d+:\d+:\d+:\d+:\d+:\d+:(\d+)/ ) {
+        $process = $1 % 0x10000;
+        $processes{$process} = 1;
+        if( defined $time_incl{$2}{$process} ) {
+            $time_incl{$2}{$process} += $6;
+        } else {
+            $time_incl{$2}{$process} = $6;
+        }
+        # look at send messages
+        if( $3 < 0xfffffffe && $5 == 2 ) {
+            $receiver = $3 % 0x10000;
+            $senders{$process} = 1;
+            $receivers{$receiver} = 1;
+            if( defined $volume{$process}{$receiver} ) {
+                $volume{$process}{$receiver} += $4;
+            } else {
+                $volume{$process}{$receiver} = $4;
+            }
+        }
+    }
+}
+
+print "Subroutine Statistics: Total Time (inclusive)\n";
+print "Routine\tMPI Tasks\n\n";
+
+foreach $process ( sort { $a <=> $b } ( keys %processes ) ) {
+    print "\tP$process";
+}
+
+print "\t\tSum\n";
+
+foreach $func ( sort { $a <=> $b } ( keys %time_incl ) ) {
+    if( defined $DefActs{$DefStatesAct{$func}} && defined $DefStates{$func} ) {
+        print "$DefActs{$DefStatesAct{$func}}:$DefStates{$func}";
+    } else {
+        print "$func";
+    }
+    $sum = 0;
+    foreach $process ( sort { $a <=> $b } ( keys %processes ) ) {
+        print "\t";
+        if( defined $time_incl{$func}{$process} ) {
+            print $time_incl{$func}{$process};
+            $sum += $time_incl{$func}{$process};
+        } else {
+            print "0";
+        }
+    }
+    print "\t\t$sum\n";
+}
+
+print "\n\nMessage Statistics: Total Message Volume\n";
+print "Sender\tReceivers\n\n";
+
+foreach $receiver ( sort { $a <=> $b } ( keys %receivers ) ) {
+    print "\tP$receiver";
+}
+
+print "\t\tSum\n";
+
+foreach $sender ( sort { $a <=> $b } ( keys %senders ) ) {
+    print "P$sender";
+    $sum = 0;
+    foreach $receiver ( sort { $a <=> $b } ( keys %receivers ) ) {
+        print "\t";
+        if( defined $volume{$sender}{$receiver} ) {
+            print $volume{$sender}{$receiver};
+            $sum += $volume{$sender}{$receiver};
+        } else {
+            print "0";
+        }
+    }
+    print "\t\t$sum\n";
+}

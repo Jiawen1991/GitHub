@@ -1,0 +1,506 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[0] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[0] WARNING:    Control over active buffer was transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[0] WARNING:       main (misc/errorhandling.c:70)
+[0] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[0] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[2] WARNING: LOCAL:MEMORY:OVERLAP: warning
+[2] WARNING:    New send buffer overlaps with currently active send buffer at address 0x7fbfffe9f4.
+[2] WARNING:    Control over active buffer was transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe98c)
+[2] WARNING:       main (misc/errorhandling.c:70)
+[2] WARNING:    Control over new buffer is about to be transferred to MPI at:
+[2] WARNING:       MPI_Isend(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe990)
+[2] WARNING:       main (misc/errorhandling.c:71)
+
+[0] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[0] WARNING:    Null MPI_Request.
+[0] WARNING:    Error occurred at:
+[0] WARNING:       MPI_Request_free(*request=0x7fbfffe9e0->MPI_REQUEST_NULL)
+[0] WARNING:       main (misc/errorhandling.c:81)
+
+[1] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[1] WARNING:    Null MPI_Request.
+[1] WARNING:    Error occurred at:
+[1] WARNING:       MPI_Request_free(*request=0x7fbfffe9e0->MPI_REQUEST_NULL)
+[1] WARNING:       main (misc/errorhandling.c:81)
+
+[2] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[2] WARNING:    Null MPI_Request.
+[2] WARNING:    Error occurred at:
+[2] WARNING:       MPI_Request_free(*request=0x7fbfffe9e0->MPI_REQUEST_NULL)
+[2] WARNING:       main (misc/errorhandling.c:81)
+
+[3] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[3] WARNING:    Null MPI_Request.
+[3] WARNING:    Error occurred at:
+[3] WARNING:       MPI_Request_free(*request=0x7fbfffe9e0->MPI_REQUEST_NULL)
+[3] WARNING:       main (misc/errorhandling.c:81)
+
+[1] ERROR: GLOBAL:MSG:DATATYPE:MISMATCH: error
+[1] ERROR:    Datatype signature mismatch.
+[1] ERROR:    Data was sent by process [0] at:
+[1] ERROR:       MPI_Send(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=1, tag=300, comm=MPI_COMM_WORLD)
+[1] ERROR:       main (misc/errorhandling.c:99)
+[1] ERROR:    Data was received by process [1] at:
+[1] ERROR:       MPI_Recv(*buf=0x7fbfffe9c4, count=1, datatype=MPI_INT, source=0, tag=300, comm=MPI_COMM_WORLD, *status=0x7fbfffe978)
+[1] ERROR:       main (misc/errorhandling.c:97)
+
+[3] ERROR: GLOBAL:MSG:DATATYPE:MISMATCH: error
+[3] ERROR:    Datatype signature mismatch.
+[3] ERROR:    Data was sent by process [2] at:
+[3] ERROR:       MPI_Send(*buf=0x7fbfffe9f4, count=1, datatype=MPI_CHAR, dest=3, tag=300, comm=MPI_COMM_WORLD)
+[3] ERROR:       main (misc/errorhandling.c:99)
+[3] ERROR:    Data was received by process [3] at:
+[3] ERROR:       MPI_Recv(*buf=0x7fbfffe9c4, count=1, datatype=MPI_INT, source=2, tag=300, comm=MPI_COMM_WORLD, *status=0x7fbfffe978)
+[3] ERROR:       main (misc/errorhandling.c:97)
+
+[0] ERROR: GLOBAL:COLLECTIVE:OPERATION_MISMATCH: error
+[0] ERROR:    Different processes entered different collective operations on the same communicator.
+[0] ERROR:    Collective call by the 2 processes with local ranks [0:2:2] (same as global ranks):
+[0] ERROR:       MPI_Reduce(*sendbuf=0x7fbfffe9f4, *recvbuf=0x7fbfffe9f8, count=1, datatype=MPI_BYTE, op=MPI_SUM, root=0, comm=MPI_COMM_WORLD)
+[0] ERROR:       main (misc/errorhandling.c:109)
+[0] ERROR:    Collective call by the 2 processes with local ranks [1:3:2] (same as global ranks):
+[0] ERROR:       MPI_Barrier(comm=MPI_COMM_WORLD)
+[0] ERROR:       main (misc/errorhandling.c:107)
+
+[0] ERROR: GLOBAL:COLLECTIVE:ROOT_MISMATCH: error
+[0] ERROR:    Root process does not match in the same collective operation.
+[0] ERROR:    Collective call by local rank [0] (same as global rank):
+[0] ERROR:       MPI_Reduce(*sendbuf=0x7fbfffe9f4, *recvbuf=0x7fbfffe9f8, count=1, datatype=MPI_BYTE, op=MPI_SUM, root=1, comm=MPI_COMM_WORLD)
+[0] ERROR:       main (misc/errorhandling.c:115)
+[0] ERROR:    Collective call by the 3 processes with local ranks [1:3] (same as global ranks):
+[0] ERROR:       MPI_Reduce(*sendbuf=0x7fbfffe9f4, *recvbuf=0x7fbfffe9f8, count=1, datatype=MPI_BYTE, op=MPI_SUM, root=0, comm=MPI_COMM_WORLD)
+[0] ERROR:       main (misc/errorhandling.c:115)
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    When calling MPI_Finalize() there were unfreed requests:
+[0] WARNING:    2 in this process.
+[0] WARNING:    This may indicate that resources are leaked at runtime.
+[0] WARNING:    To clean up properly MPI_Request_free() should be called
+[0] WARNING:    for each persistent request and MPI_Wait() for normal
+[0] WARNING:    requests.
+[0] WARNING:    1. 2 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=1, tag=300, comm=MPI_COMM_WORLD, *request=...)
+[0] WARNING:       main (misc/errorhandling.c:122)
+
+[2] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[2] WARNING:    When calling MPI_Finalize() there were unfreed requests:
+[2] WARNING:    2 in this process.
+[2] WARNING:    This may indicate that resources are leaked at runtime.
+[2] WARNING:    To clean up properly MPI_Request_free() should be called
+[2] WARNING:    for each persistent request and MPI_Wait() for normal
+[2] WARNING:    requests.
+[2] WARNING:    1. 2 times:
+[2] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=3, tag=300, comm=MPI_COMM_WORLD, *request=...)
+[2] WARNING:       main (misc/errorhandling.c:122)
+
+[1] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[1] WARNING:    When calling MPI_Finalize() there were unfreed requests:
+[1] WARNING:    2 in this process.
+[1] WARNING:    This may indicate that resources are leaked at runtime.
+[1] WARNING:    To clean up properly MPI_Request_free() should be called
+[1] WARNING:    for each persistent request and MPI_Wait() for normal
+[1] WARNING:    requests.
+[1] WARNING:    1. 2 times:
+[1] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=MPI_COMM_WORLD, *request=...)
+[1] WARNING:       main (misc/errorhandling.c:122)
+
+[3] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[3] WARNING:    When calling MPI_Finalize() there were unfreed requests:
+[3] WARNING:    2 in this process.
+[3] WARNING:    This may indicate that resources are leaked at runtime.
+[3] WARNING:    To clean up properly MPI_Request_free() should be called
+[3] WARNING:    for each persistent request and MPI_Wait() for normal
+[3] WARNING:    requests.
+[3] WARNING:    1. 2 times:
+[3] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=2, tag=300, comm=MPI_COMM_WORLD, *request=...)
+[3] WARNING:       main (misc/errorhandling.c:122)
+
+[0] INFO: LOCAL:MPI:CALL_FAILED: found 4 times (0 errors + 4 warnings), 0 reports were suppressed
+[0] INFO: LOCAL:MEMORY:OVERLAP: found 40 times (0 errors + 40 warnings), 0 reports were suppressed
+[0] INFO: LOCAL:REQUEST:NOT_FREED: found 4 times (0 errors + 4 warnings), 0 reports were suppressed
+[0] INFO: GLOBAL:MSG:DATATYPE:MISMATCH: found 2 times (2 errors + 0 warnings), 0 reports were suppressed
+[0] INFO: GLOBAL:COLLECTIVE:OPERATION_MISMATCH: found 1 time (1 error + 0 warnings), 0 reports were suppressed
+[0] INFO: GLOBAL:COLLECTIVE:ROOT_MISMATCH: found 1 time (1 error + 0 warnings), 0 reports were suppressed
+[0] INFO: Found 52 problems (4 errors + 48 warnings), 0 reports were suppressed.
+

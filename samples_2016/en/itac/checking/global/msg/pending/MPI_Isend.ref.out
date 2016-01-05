@@ -1,0 +1,118 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    When calling MPI_Finalize() there were freed active requests:
+[0] WARNING:    1 in this process.
+[0] WARNING:    MPI_Request_free() was called on them without checking for completion
+[0] WARNING:    first. This is allowed by the MPI standard, but discouraged.
+[0] WARNING:    Terminating with active requests may be a sign of a resource leak
+[0] WARNING:    or unmatched messages.
+[0] WARNING:    1. 1 time:
+[0] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[0] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[1] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[1] WARNING:    When calling MPI_Finalize() there were freed active requests:
+[1] WARNING:    1 in this process.
+[1] WARNING:    MPI_Request_free() was called on them without checking for completion
+[1] WARNING:    first. This is allowed by the MPI standard, but discouraged.
+[1] WARNING:    Terminating with active requests may be a sign of a resource leak
+[1] WARNING:    or unmatched messages.
+[1] WARNING:    1. 1 time:
+[1] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=0, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[1] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[2] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[2] WARNING:    When calling MPI_Finalize() there were freed active requests:
+[2] WARNING:    1 in this process.
+[2] WARNING:    MPI_Request_free() was called on them without checking for completion
+[2] WARNING:    first. This is allowed by the MPI standard, but discouraged.
+[2] WARNING:    Terminating with active requests may be a sign of a resource leak
+[2] WARNING:    or unmatched messages.
+[2] WARNING:    1. 1 time:
+[2] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[2] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[3] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[3] WARNING:    When calling MPI_Finalize() there were freed active requests:
+[3] WARNING:    1 in this process.
+[3] WARNING:    MPI_Request_free() was called on them without checking for completion
+[3] WARNING:    first. This is allowed by the MPI standard, but discouraged.
+[3] WARNING:    Terminating with active requests may be a sign of a resource leak
+[3] WARNING:    or unmatched messages.
+[3] WARNING:    1. 1 time:
+[3] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=2, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[3] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[0] WARNING: GLOBAL:MSG:PENDING: warning
+[0] WARNING:    Terminating while communicator COMM_WORLD has pending incoming messages.
+[0] WARNING:    Shutdown initiated at:
+[0] WARNING:       MPI_Finalize()
+[0] WARNING:       main (global/msg/pending/MPI_Isend.c:63)
+[0] WARNING:    Message sent by [1] at:
+[0] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=0, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[0] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[1] WARNING: GLOBAL:MSG:PENDING: warning
+[1] WARNING:    Terminating while communicator COMM_WORLD has pending incoming messages.
+[1] WARNING:    Shutdown initiated at:
+[1] WARNING:       MPI_Finalize()
+[1] WARNING:       main (global/msg/pending/MPI_Isend.c:63)
+[1] WARNING:    Message sent by [0] at:
+[1] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[1] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[2] WARNING: GLOBAL:MSG:PENDING: warning
+[2] WARNING:    Terminating while communicator COMM_WORLD has pending incoming messages.
+[2] WARNING:    Shutdown initiated at:
+[2] WARNING:       MPI_Finalize()
+[2] WARNING:       main (global/msg/pending/MPI_Isend.c:63)
+[2] WARNING:    Message sent by [3] at:
+[2] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=2, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[2] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[3] WARNING: GLOBAL:MSG:PENDING: warning
+[3] WARNING:    Terminating while communicator COMM_WORLD has pending incoming messages.
+[3] WARNING:    Shutdown initiated at:
+[3] WARNING:       MPI_Finalize()
+[3] WARNING:       main (global/msg/pending/MPI_Isend.c:63)
+[3] WARNING:    Message sent by [2] at:
+[3] WARNING:       MPI_Isend(*buf=0xa0071c, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffe9c8)
+[3] WARNING:       main (global/msg/pending/MPI_Isend.c:53)
+
+[0] INFO: LOCAL:REQUEST:NOT_FREED: found 4 times (0 errors + 4 warnings), 0 reports were suppressed
+[0] INFO: GLOBAL:MSG:PENDING: found 4 times (0 errors + 4 warnings), 0 reports were suppressed
+[0] INFO: Found 8 problems (0 errors + 8 warnings), 0 reports were suppressed.
+

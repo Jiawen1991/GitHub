@@ -1,0 +1,6 @@
+            Intel(R) Trace Collector instrumentation examples
+
+This directory contains a small collection (jacobi-solver) of example 
+programs that have been instrumented with the ITC API. Please 
+refer to the examples' README-files for details about particular examples
+and to file README.examples for compiling and building the example programs.

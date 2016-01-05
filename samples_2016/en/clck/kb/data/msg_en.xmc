@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xmc version="1.0">
+  <catalog name="kb" lang="en">
+
+    <msg name="duck-data-is-too-old">
+      The most recent duck diagnostic data is <arg name="0"
+      type="duration"/> old.
+    </msg>
+
+    <msg name="duck-data-missing">
+      Duck diagnostic data is not available for analysis.
+    </msg>
+
+    <msg name="duck-data-missing-remedy">
+      Run the 'duck' data provider.
+    </msg>
+
+    <msg name="duck-honking">
+      Uh-oh - the duck is honking like a goose!
+    </msg>
+
+    <msg name="duck-less-than-three-quacks">
+      The duck diagnostic rating is <arg name="0" type="int"/> quacks.
+    </msg>
+
+    <msg name="duck-quack-count-is-not-consistent">
+      The quack rating, '<arg name="1" type="int"/>', is not uniform.
+      <arg name="0" precision="0" type="double"/>% of nodes in the
+      same grouping have the same quack rating.
+    </msg>
+
+  </catalog>
+</xmc>

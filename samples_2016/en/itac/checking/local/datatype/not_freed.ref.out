@@ -1,0 +1,135 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 20
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] WARNING: LOCAL:DATATYPE:NOT_FREED: warning
+[0] WARNING:    The current number of user-defined datatypes in this process is 4.
+[0] WARNING:    This matches the CHECK-MAX-DATATYPES threshold
+[0] WARNING:    and may indicate that the application is not freeing
+[0] WARNING:    all datatypes that it creates.
+[0] WARNING:    1. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=2, stride=2, old_type=MPI_CHAR, *newtype=0x7fbfffe930)
+[0] WARNING:       main (local/datatype/not_freed.c:57)
+[0] WARNING:    2. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=3, stride=3, old_type=MPI_CHAR, *newtype=0x7fbfffe934)
+[0] WARNING:       main (local/datatype/not_freed.c:57)
+[0] WARNING:    3. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=4, stride=4, old_type=MPI_CHAR, *newtype=0x7fbfffe938)
+[0] WARNING:       main (local/datatype/not_freed.c:57)
+[0] WARNING:    4. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=5, stride=5, old_type=MPI_CHAR, *newtype=0x7fbfffe93c)
+[0] WARNING:       main (local/datatype/not_freed.c:57)
+
+[0] ERROR: LOCAL:MPI:CALL_FAILED: error
+[0] ERROR:    Invalid datatype.
+[0] ERROR:    Error occurred at:
+[0] ERROR:       MPI_Type_lb(datatype=0xcc000001 <<invalid>>, *displacement=0x7fbfffe940)
+[0] ERROR:       main (local/datatype/not_freed.c:64)
+
+[0] ERROR: LOCAL:MPI:CALL_FAILED: error
+[0] ERROR:    Invalid datatype.
+[0] ERROR:    Error occurred at:
+[0] ERROR:       MPI_Type_lb(datatype=0xcc000003 <<invalid>>, *displacement=0x7fbfffe940)
+[0] ERROR:       main (local/datatype/not_freed.c:77)
+
+[0] WARNING: LOCAL:DATATYPE:NOT_FREED: warning
+[0] WARNING:    The current number of user-defined datatypes in this process is 8.
+[0] WARNING:    This matches the CHECK-MAX-DATATYPES threshold 2 times
+[0] WARNING:    and may indicate that the application is not freeing
+[0] WARNING:    all datatypes that it creates.
+[0] WARNING:    1. 3 times:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=10, stride=10, old_type=MPI_CHAR, *newtype=...)
+[0] WARNING:       main (local/datatype/not_freed.c:81)
+[0] WARNING:    2. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=10, stride=10, old_type=MPI_CHAR, *newtype=0x7fbfffe930)
+[0] WARNING:       main (local/datatype/not_freed.c:70)
+[0] WARNING:    3. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=5, stride=5, old_type=MPI_CHAR, *newtype=0x7fbfffe93c)
+[0] WARNING:       main (local/datatype/not_freed.c:65)
+[0] WARNING:    4. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=2, stride=2, old_type=MPI_CHAR, *newtype=0x7fbfffe930)
+[0] WARNING:       main (local/datatype/not_freed.c:57)
+[0] WARNING:    5. 1 time:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=3, stride=3, old_type=MPI_CHAR, *newtype=0x7fbfffe934)
+[0] WARNING:       main (local/datatype/not_freed.c:57)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:DATATYPE:NOT_FREED: warning
+[0] WARNING:    The current number of user-defined datatypes in this process is 12.
+[0] WARNING:    This matches the CHECK-MAX-DATATYPES threshold 3 times
+[0] WARNING:    and may indicate that the application is not freeing
+[0] WARNING:    all datatypes that it creates.
+[0] WARNING:    1. 3 times:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=10, stride=10, old_type=MPI_CHAR, *newtype=...)
+[0] WARNING:       main (local/datatype/not_freed.c:81)
+[0] WARNING:    2. 1 time:
+[0] WARNING:       MPI_Type_struct(count=1, *blocklens=0x7fbfffe974, *indices=0x7fbfffe948, *old_types=0x7fbfffe978, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:94)
+[0] WARNING:    3. 1 time:
+[0] WARNING:       MPI_Type_hindexed(count=1, *blocklens=0x7fbfffe974, *indices=0x7fbfffe948, old_type=MPI_CHAR, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:92)
+[0] WARNING:    4. 1 time:
+[0] WARNING:       MPI_Type_contiguous(count=2, old_type=MPI_CHAR, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:90)
+[0] WARNING:    5. 1 time:
+[0] WARNING:       MPI_Type_hvector(count=1, blocklen=2, stride=2, old_type=MPI_CHAR, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:87)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:DATATYPE:NOT_FREED: warning
+[0] WARNING:    When calling MPI_Finalize() there were unfreed user-defined datatypes:
+[0] WARNING:    12 in this process.
+[0] WARNING:    This may indicate that resources are leaked at runtime.
+[0] WARNING:    To clean up properly MPI_Type_free() should be called for
+[0] WARNING:    all user-defined datatypes.
+[0] WARNING:    1. 3 times:
+[0] WARNING:       MPI_Type_vector(count=1, blocklen=10, stride=10, old_type=MPI_CHAR, *newtype=...)
+[0] WARNING:       main (local/datatype/not_freed.c:81)
+[0] WARNING:    2. 1 time:
+[0] WARNING:       MPI_Type_struct(count=1, *blocklens=0x7fbfffe974, *indices=0x7fbfffe948, *old_types=0x7fbfffe978, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:94)
+[0] WARNING:    3. 1 time:
+[0] WARNING:       MPI_Type_hindexed(count=1, *blocklens=0x7fbfffe974, *indices=0x7fbfffe948, old_type=MPI_CHAR, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:92)
+[0] WARNING:    4. 1 time:
+[0] WARNING:       MPI_Type_contiguous(count=2, old_type=MPI_CHAR, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:90)
+[0] WARNING:    5. 1 time:
+[0] WARNING:       MPI_Type_hvector(count=1, blocklen=2, stride=2, old_type=MPI_CHAR, *newtype=0x7fbfffe970)
+[0] WARNING:       main (local/datatype/not_freed.c:87)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] INFO: LOCAL:MPI:CALL_FAILED: found 2 times (2 errors + 0 warnings), 0 reports were suppressed
+[0] INFO: LOCAL:DATATYPE:NOT_FREED: found 4 times (0 errors + 4 warnings), 0 reports were suppressed
+[0] INFO: Found 6 problems (2 errors + 4 warnings), 0 reports were suppressed.
+

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- Assume that duck.sh is located in the default Intel(R) Cluster
+       Checker install directory, e.g., PROVIDER_AUXILIARY_PATH will
+       expand to /opt/intel/clck/3.1.0/provider. -->
+  <command>%PROVIDER_AUXILIARY_PATH%/duck/duck.sh</command>
+
+  <!-- Run once per day in asynchronous mode. -->
+  <period>86400</period>
+</configuration>

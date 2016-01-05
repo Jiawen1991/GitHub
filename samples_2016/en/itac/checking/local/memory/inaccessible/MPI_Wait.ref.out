@@ -1,0 +1,77 @@
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_ACCESS OFF
+[0] INFO: CHECK LOCAL:MEMORY:INITIALIZATION OFF
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK LOCAL:BUFFER:INSUFFICIENT_BUFFER ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 120s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] WARNING: LOCAL:MEMORY:INACCESSIBLE: warning
+[0] WARNING:    Some memory in buffer 0x2a960c6010 is inaccessible.
+[0] WARNING:    Send request activated at:
+[0] WARNING:       MPI_Isend(*buf=0x2a960c6010, count=104857600, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffeaa0)
+[0] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:65)
+[0] WARNING:    Error occurred in:
+[0] WARNING:       MPI_Wait(*request=0x7fbfffeaa0->0x2c000002, *status=0x7fbfffea80)
+[0] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:80)
+
+[1] WARNING: LOCAL:MEMORY:INACCESSIBLE: warning
+[1] WARNING:    Some memory in buffer 0x2a960be010 is inaccessible.
+[1] WARNING:    Send request activated at:
+[1] WARNING:       MPI_Isend(*buf=0x2a960be010, count=104857600, datatype=MPI_CHAR, dest=0, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffeaa0)
+[1] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:65)
+[1] WARNING:    Error occurred in:
+[1] WARNING:       MPI_Wait(*request=0x7fbfffeaa0->0x2c000002, *status=0x7fbfffea80)
+[1] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:80)
+
+[2] WARNING: LOCAL:MEMORY:INACCESSIBLE: warning
+[2] WARNING:    Some memory in buffer 0x2a960be010 is inaccessible.
+[2] WARNING:    Send request activated at:
+[2] WARNING:       MPI_Isend(*buf=0x2a960be010, count=104857600, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffeaa0)
+[2] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:65)
+[2] WARNING:    Error occurred in:
+[2] WARNING:       MPI_Wait(*request=0x7fbfffeaa0->0x2c000002, *status=0x7fbfffea80)
+[2] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:80)
+
+[3] WARNING: LOCAL:MEMORY:INACCESSIBLE: warning
+[3] WARNING:    Some memory in buffer 0x2a96200010 is inaccessible.
+[3] WARNING:    Send request activated at:
+[3] WARNING:       MPI_Isend(*buf=0x2a96200010, count=104857600, datatype=MPI_CHAR, dest=2, tag=100, comm=MPI_COMM_WORLD, *request=0x7fbfffeaa0)
+[3] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:65)
+[3] WARNING:    Error occurred in:
+[3] WARNING:       MPI_Wait(*request=0x7fbfffeaa0->0x2c000002, *status=0x7fbfffea80)
+[3] WARNING:       main (local/memory/inaccessible/MPI_Wait.c:80)
+
+[0] INFO: LOCAL:MEMORY:INACCESSIBLE: found 4 times (0 errors + 4 warnings), 0 reports were suppressed
+[0] INFO: Found 4 problems (0 errors + 4 warnings), 0 reports were suppressed.
+
+0.12user 0.22system 0:10.07elapsed 3%CPU (0avgtext+0avgdata 0maxresident)k
+0inputs+0outputs (0major+7280minor)pagefaults 0swaps

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>shrd_sampleCPP</title></head>
+<body>
+<table class="MsoNormalTable" style="color: white; font-family: Intel Clear; width: 100%; height: 89px;" border="0" cellpadding="0">
+<tbody>
+<tr style="">
+<td style="border: 1pt solid rgb(221, 221, 221); padding: 3.75pt; background: rgb(0, 113, 197) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; height: 53px;">
+<h2 style="font-family: Intel Clear;"><span class="SpellE">shrd_sampleCPP</span></h2>
+</td>
+</tr>
+</tbody>
+</table>
+<div style="font-family: Intel Clear;"><span class="MsoIntenseEmphasis"><span style="font-weight: bold;"></span></span>
+<h5><span class="MsoIntenseEmphasis"><big><span style="font-weight: bold;">Overview</span></big><o:p></o:p></span></h5>
+</div>
+<div style="margin-left: 40px; font-family: Intel Clear;">
+<p>The sample illustrates use of the offload extension keywords <span style="font-family: Courier New;">_Cilk_shared</span>
+and <span style="font-family: Courier New;">_Cilk_offload</span>
+within C++. The use is illustrated with&nbsp;shared class member field/function, members of
+different types, single/multiple class inheritance, shared malloc API,
+passing pointer to/address of shared class object, shared class static
+field member, marking code region _Cilk_shared, shared class with
+virtual function member and virtual function member with
+single/multiple class inheritance. Refer to the
+table below for additional details on individual samples included. </p>
+</div>
+<h5><span class="MsoIntenseEmphasis"><big style="font-family: Intel Clear;"><span style="font-weight: bold;">System
+Requirements</span></big><o:p></o:p></span><span style="font-family: Intel Clear;"></span></h5>
+<span style="font-family: Intel Clear;"></span>
+<div style="margin-left: 40px;"><span style="font-family: Intel Clear;">Minimum
+requirements&nbsp;</span><span style="font-family: Intel Clear;">include an </span><span style="font-family: Intel Clear;">Intel® 64 architecture
+processor-based </span><span style="font-family: Intel Clear;">host
+system with an
+Intel® Xeon Phi&#8482; coprocessor, a supported version of the Linux*
+operating system, and the Intel® Manycore Platform Software
+Stack (Intel® MPSS). </span><span style="font-family: Intel Clear;">Refer to the Intel®
+Parallel Studio XE product
+Release Notes for details on the complete system requirements.</span><span style="font-family: Intel Clear;"></span></div>
+<h5><span class="MsoIntenseEmphasis"><big style="font-family: Intel Clear;"><span style="font-weight: bold;">Build
+Instructions</span></big><o:p></o:p></span><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"></span></span></h5>
+<div style="margin-left: 40px;"><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;">Expand the&nbsp;</span></span><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;">TAR .gz file to a writable
+directory of your choice. Use the <span style="font-family: Courier New;">Makefile</span>
+provided&nbsp;to build the sample.&nbsp;</span></span><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;">The <span style="font-family: Courier New;">Makefile</span> requires an argument from the following list:</span></span>
+<ul>
+<li><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"><span style="font-weight: bold;">mic</span> - Build with
+offload support enabled (i.e. <span style="font-family: Courier New;">-qoffload=mandatory</span>)</span></span></li>
+<li><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"><span style="font-weight: bold;">no_mic</span> -&nbsp;
+Build with offload support disabled (i.e. <span style="font-family: Courier New;">-qoffload=none</span>)</span></span></li>
+<li><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"><span style="font-weight: bold;">mic_debug</span> - Build
+with offload support enabled (i.e. <span style="font-family: Courier New;">-qoffload=mandatory</span>
+and additional debugging options)</span></span></li>
+<li><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"><span style="font-weight: bold;">clean</span> - Remove files
+created during the compile/link phases (e.g. object files, executable,
+etc.)</span></span></li>
+</ul>
+</div>
+<p><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"></span></span></p>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="font-family: Intel Clear; text-align: center; background-color: silver; white-space: nowrap;">
+<h4>Sample Name</h4>
+</td>
+<td style="font-family: Intel Clear; background-color: silver;">
+<h4>Description</h4>
+</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld00</td>
+<td style="font-family: Intel Clear;">Illustrates&nbsp;use
+of the <span style="font-family: Courier New;">_Offload_number_of_devices()</span>
+(C/C++) API and offload<br>
+code to determine whether offload constructs execute in offload or host
+(fallback) mode</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld01</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of shared class member field inside a constructor on the host and
+shared function&nbsp;on the coprocessor</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld02</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of shared class member field inside a constructor on the host and
+shared class functions on the coprocessor</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld03</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of shared class member fields of various types inside a constructor
+on the coprocessor</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld04</td>
+<td style="font-family: Intel Clear;">Illustrates
+passing a pointer to shared class object to a function&nbsp;on the
+coprocessor</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld05</td>
+<td style="font-family: Intel Clear;">Illustrates
+single inheritance of shared class objects on the coprocessor</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld06</td>
+<td style="font-family: Intel Clear;">Illustrates
+multiple inheritance of shared class objects on the coprocessor</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld07</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of the <span style="font-family: Courier New;">_Offload_shared_malloc</span>
+(C/C++) API for dynamic allocation of a shared object </td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld08</td>
+<td style="font-family: Intel Clear;">Illustrates&nbsp;use of the <span style="font-family: Courier New;">_Offload_shared_aligned_malloc</span>
+(C/C++) API for dynamic allocation of a shared object</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld09</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of the <span style="font-family: Courier New;">#pragma
+offload_attribute</span> push/pop to mark code regions as shared</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld10</td>
+<td style="font-family: Intel Clear;">Illustrates&nbsp;passing
+the address of shared class object as a parameter</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">shrd_ofld11</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of a static member of a shared class on the host and coprocessor</td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">&nbsp;shrd_ofld_vt01&nbsp;</td>
+<td style="font-family: Intel Clear;">Illustrates&nbsp;use
+of a shared class field inside a constructor&nbsp;on the host and a
+virtual function member on the&nbsp;coprocessor<span style="font-family: Courier New;"></span></td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">&nbsp;shrd_ofld_vt02&nbsp;</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of a shared class with single virtual function inheritance<span style="font-family: Courier New;"></span></td>
+</tr>
+<tr>
+<td style="font-family: Intel Clear; text-align: center;">&nbsp;shrd_ofld_vt03&nbsp;</td>
+<td style="font-family: Intel Clear;">Illustrates
+use of a shared class with multiple virtual function inheritance</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;"></span></span></p>
+<table style="width: 100%; height: 290px;" class="MsoNormalTable" border="0" cellpadding="0">
+<tbody>
+<tr style="">
+<td style="border: 1pt solid rgb(221, 221, 221); padding: 3.75pt; background: rgb(0, 113, 197) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+<p class="MsoNormal"><span style="color: white; font-family: Intel Clear;">Optimization
+Notice</span><span style="line-height: 115%; font-family: 'Intel Clear','sans-serif'; color: white; font-size: 12pt;"><o:p></o:p></span></p>
+</td>
+</tr>
+<tr style="">
+<td style="border: 1pt solid rgb(221, 221, 221); padding: 3.75pt;" valign="top">
+<p class="MsoNormal" style="line-height: 120%; vertical-align: top; font-family: Intel Clear;">Intel's
+compilers may or may not optimize to the same degree for non-Intel
+microprocessors for optimizations that are not unique to Intel
+microprocessors. These optimizations include SSE2, SSE3, and SSSE3
+instruction sets and other optimizations. Intel does not guarantee the
+availability, functionality, or effectiveness of any optimization on
+microprocessors not manufactured by Intel. Microprocessor-dependent
+optimizations in this product are intended for use with Intel
+microprocessors. Certain optimizations not specific to Intel
+microarchitecture <span class="GramE">are</span>
+reserved for Intel microprocessors. Please refer to the applicable
+product User and Reference Guides for more information <span class="SpellE">regardîng</span> the specific
+instruction sets covered by this notice.<o:p></o:p></p>
+<p style="line-height: 120%; vertical-align: top;" class="MsoNormal"><span style="font-family: Intel Clear;">Notice
+revision #20110804</span><span style="line-height: 120%; font-family: 'Intel Clear','sans-serif'; font-size: 12pt;"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="font-family: Intel Clear;">Copyright
+© 2015 Intel Corporation. All Rights Reserved<o:p></o:p></p>
+<p><span style="font-family: 'Intel Clear','sans-serif';"><span style="font-family: Intel Clear;">*
+Other names and brands may be claimed as the property of others</span>
+<o:p></o:p></span></p>
+</body></html>

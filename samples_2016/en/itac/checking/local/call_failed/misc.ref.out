@@ -1,0 +1,85 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[0] WARNING:    Null MPI_Request.
+[0] WARNING:    Error occurred at:
+[0] WARNING:       MPI_Request_free(*request=0x7fbfffea28->MPI_REQUEST_NULL)
+[0] WARNING:       main (local/call_failed/misc.c:49)
+
+[1] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[1] WARNING:    Null MPI_Request.
+[1] WARNING:    Error occurred at:
+[1] WARNING:       MPI_Request_free(*request=0x7fbfffea28->MPI_REQUEST_NULL)
+[1] WARNING:       main (local/call_failed/misc.c:49)
+
+[2] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[2] WARNING:    Null MPI_Request.
+[2] WARNING:    Error occurred at:
+[2] WARNING:       MPI_Request_free(*request=0x7fbfffea28->MPI_REQUEST_NULL)
+[2] WARNING:       main (local/call_failed/misc.c:49)
+
+[3] WARNING: LOCAL:MPI:CALL_FAILED: warning
+[3] WARNING:    Null MPI_Request.
+[3] WARNING:    Error occurred at:
+[3] WARNING:       MPI_Request_free(*request=0x7fbfffea28->MPI_REQUEST_NULL)
+[3] WARNING:       main (local/call_failed/misc.c:49)
+
+[0] ERROR: LOCAL:MPI:CALL_FAILED: error
+[0] ERROR:    Invalid rank has value 4 but must be nonnegative and less than 4.
+[0] ERROR:    Error occurred at:
+[0] ERROR:       MPI_Send(*buf=0x7fbfffea34, count=1, datatype=MPI_CHAR, dest=4, tag=100, comm=MPI_COMM_WORLD)
+[0] ERROR:       main (local/call_failed/misc.c:53)
+
+[1] ERROR: LOCAL:MPI:CALL_FAILED: error
+[1] ERROR:    Invalid rank has value 4 but must be nonnegative and less than 4.
+[1] ERROR:    Error occurred at:
+[1] ERROR:       MPI_Send(*buf=0x7fbfffea34, count=1, datatype=MPI_CHAR, dest=4, tag=100, comm=MPI_COMM_WORLD)
+[1] ERROR:       main (local/call_failed/misc.c:53)
+
+[2] ERROR: LOCAL:MPI:CALL_FAILED: error
+[2] ERROR:    Invalid rank has value 4 but must be nonnegative and less than 4.
+[2] ERROR:    Error occurred at:
+[2] ERROR:       MPI_Send(*buf=0x7fbfffea34, count=1, datatype=MPI_CHAR, dest=4, tag=100, comm=MPI_COMM_WORLD)
+[2] ERROR:       main (local/call_failed/misc.c:53)
+
+[3] ERROR: LOCAL:MPI:CALL_FAILED: error
+[3] ERROR:    Invalid rank has value 4 but must be nonnegative and less than 4.
+[3] ERROR:    Error occurred at:
+[3] ERROR:       MPI_Send(*buf=0x7fbfffea34, count=1, datatype=MPI_CHAR, dest=4, tag=100, comm=MPI_COMM_WORLD)
+[3] ERROR:       main (local/call_failed/misc.c:53)
+
+[0] INFO: LOCAL:MPI:CALL_FAILED: found 8 times (4 errors + 4 warnings), 0 reports were suppressed
+[0] INFO: Found 8 problems (4 errors + 4 warnings), 0 reports were suppressed.
+

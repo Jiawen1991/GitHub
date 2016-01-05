@@ -1,0 +1,25 @@
+    Intel(R) Trace Collector example - simple Jacobi iteration in C
+
+This code was adapted from the HTML MPI tutorial by William Gropp and
+Ewing Lusk. The tutorial can be accessed as
+http://www.mcs.anl.gov/Projects/mpi/index.html, and this example was
+derived from the "Jacobi Iteration - Overlapping communication (sends
+first)" exercise.
+
+To instrument with ITC, the setup routine VT_setup in VT.c was
+added, in addition to calls to VT_begin() and VT_end() in each
+function. All the instrumentation code is enclosed in #ifdef/#endif
+brackets; define the macro V_T to include the instrumentation.
+
+See also ../README.
+
+Start the executable (vtjacobic or vnjacobic) following the conventions of your system and MPI
+implementation. It accepts the following command-line arguments:
+
+  -print	switch on debugging output
+  -maxit <iter>	set maximum iteration count to <iter>
+  -n <rows>	set number of grid rows to <rows> (default 128)
+  -m <cols>	set number of grid columns to <cols> (default 128)
+
+The ratio of computation to calculation can be influenced by varying
+<rows> and <cols>.

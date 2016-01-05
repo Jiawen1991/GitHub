@@ -1,0 +1,36 @@
+
+export EXE=$1
+
+shift
+
+np=$1
+
+out=out_$$_$np
+
+shift
+
+export ARGS=$@
+
+while [ 1 -le $# ] ; do
+  arg=$1
+  tt=${out}_$arg
+  out=$tt
+  shift
+done
+
+echo "running -> $out"
+touch $out
+
+rm -rf .conf
+head -n $np .baseconf > .conf
+
+echo "mpi_exec-conf:" >> $out
+
+cat .conf >> $out
+
+echo "MPICH:" >> $out
+echo $MPICH >> $out
+
+echo ' ' >> $out
+
+mpiexec -configfile .conf >> $out

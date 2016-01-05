@@ -1,0 +1,39 @@
+.SUFFIXES: .f90 .f .o
+
+
+MPI_HOME    = ${I_MPI_ROOT}
+MPI_INCLUDE =  $(MPI_HOME)/include 
+
+ARCH        = 
+COMM        =
+
+LIB_PATH    =
+LIBS        =
+
+CC          = cc 
+CLINKER     = cc
+
+F90         = mpiifort
+
+FLINKER     = $(F90)
+
+FOPTFLAGS    = -g
+FOPTFLAGS    = -O3
+COPTFLAGS    = -O
+
+MODINC=
+
+CFLAGS=$(COPTFLAGS)   -I$(MPI_INCLUDE)   
+F77FLAGS=$(FOPTFLAGS) -I$(MPI_INCLUDE) $(MODINC)$(make_dir)
+F90FLAGS=$(FOPTFLAGS) -I$(MPI_INCLUDE) $(MODINC)$(make_dir) $(ADDFLAGS) -o $*.o
+
+LINKER=$(FLINKER)
+LIB_PATH=-L$(VT_SLIB_DIR)
+LIBS= -lVT $(VT_ADD_LIBS)
+
+LDFLAGS=-g
+LDFLAGS=${VTlibs}
+
+# Linux compilers tend to not support f90 modules properly
+# Then, all modules have to be built anew each time:
+RMFILES=$(EXTOBJ) $(MOD)

@@ -1,0 +1,257 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 20
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 4.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 4 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 8.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 2 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    2. 1 time:
+[0] WARNING:       MPI_Irecv(*buf=0x7fbfffe378, count=1, datatype=MPI_CHAR, source=0, tag=104, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:61)
+[0] WARNING:    3. 1 time:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe377, count=1, datatype=MPI_CHAR, dest=0, tag=102, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:60)
+[0] WARNING:    4. 1 time:
+[0] WARNING:       MPI_Recv_init(*buf=0x7fbfffe376, count=1, datatype=MPI_CHAR, source=0, tag=101, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:59)
+[0] WARNING:    5. 1 time:
+[0] WARNING:       MPI_Send_init(*buf=0x7fbfffe375, count=1, datatype=MPI_CHAR, dest=0, tag=100, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:58)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 12.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 3 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    2. 2 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=..., dest=0, tag=200, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:69)
+[0] WARNING:    3. 1 time:
+[0] WARNING:       MPI_Recv_init(*buf=0x7fbfffe37f, count=1, datatype=MPI_CHAR, source=0, tag=301, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:80)
+[0] WARNING:    4. 1 time:
+[0] WARNING:       MPI_Send_init(*buf=0x7fbfffe37e, count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    5. 1 time:
+[0] WARNING:       MPI_Irecv(*buf=0x7fbfffe378, count=1, datatype=MPI_CHAR, source=0, tag=104, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:61)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 16.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 4 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    2. 2 times:
+[0] WARNING:       MPI_Irecv(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=304, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:83)
+[0] WARNING:    3. 2 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    4. 2 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=..., dest=0, tag=200, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:69)
+[0] WARNING:    5. 1 time:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe380, count=1, datatype=MPI_CHAR, dest=0, tag=302, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:81)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 20.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 5 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 4 times:
+[0] WARNING:       MPI_Irecv(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=304, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:83)
+[0] WARNING:    2. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    3. 2 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=302, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:81)
+[0] WARNING:    4. 2 times:
+[0] WARNING:       MPI_Recv_init(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=301, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:80)
+[0] WARNING:    5. 2 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 24.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 6 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 5 times:
+[0] WARNING:       MPI_Irecv(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=304, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:83)
+[0] WARNING:    2. 3 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=302, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:81)
+[0] WARNING:    3. 3 times:
+[0] WARNING:       MPI_Recv_init(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=301, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:80)
+[0] WARNING:    4. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    5. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 28.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 7 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 6 times:
+[0] WARNING:       MPI_Irecv(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=304, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:83)
+[0] WARNING:    2. 4 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=302, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:81)
+[0] WARNING:    3. 4 times:
+[0] WARNING:       MPI_Recv_init(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=301, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:80)
+[0] WARNING:    4. 4 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    5. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 32.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 8 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 8 times:
+[0] WARNING:       MPI_Irecv(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=304, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:83)
+[0] WARNING:    2. 5 times:
+[0] WARNING:       MPI_Recv_init(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=301, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:80)
+[0] WARNING:    3. 5 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    4. 4 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=302, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:81)
+[0] WARNING:    5. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    The current number of requests in this process is 36.
+[0] WARNING:    This matches the CHECK-MAX-REQUESTS threshold 9 times
+[0] WARNING:    and may indicate that the application is not freeing or
+[0] WARNING:    completing all requests that it creates.
+[0] WARNING:    1. 10 times:
+[0] WARNING:       MPI_Irecv(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=304, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:83)
+[0] WARNING:    2. 5 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=302, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:81)
+[0] WARNING:    3. 5 times:
+[0] WARNING:       MPI_Recv_init(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=301, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:80)
+[0] WARNING:    4. 5 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    5. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    When calling MPI_Finalize() there were unfreed requests:
+[0] WARNING:    35 in this process.
+[0] WARNING:    This may indicate that resources are leaked at runtime.
+[0] WARNING:    To clean up properly MPI_Request_free() should be called
+[0] WARNING:    for each persistent request and MPI_Wait() for normal
+[0] WARNING:    requests.
+[0] WARNING:    1. 10 times:
+[0] WARNING:       MPI_Irecv(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=304, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:83)
+[0] WARNING:    2. 5 times:
+[0] WARNING:       MPI_Isend(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=302, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:81)
+[0] WARNING:    3. 5 times:
+[0] WARNING:       MPI_Recv_init(*buf=..., count=1, datatype=MPI_CHAR, source=0, tag=301, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:80)
+[0] WARNING:    4. 5 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=300, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:79)
+[0] WARNING:    5. 3 times:
+[0] WARNING:       MPI_Send_init(*buf=..., count=1, datatype=MPI_CHAR, dest=0, tag=0, comm=COMM_SELF [0], *request=...)
+[0] WARNING:       main (local/request/not_freed.c:51)
+[0] WARNING:    Summary truncated at CHECK-LEAK-REPORT-SIZE 5.
+
+[0] WARNING: LOCAL:REQUEST:NOT_FREED: warning
+[0] WARNING:    When calling MPI_Finalize() there were freed active requests:
+[0] WARNING:    1 in this process.
+[0] WARNING:    MPI_Request_free() was called on them without checking for completion
+[0] WARNING:    first. This is allowed by the MPI standard, but discouraged.
+[0] WARNING:    Terminating with active requests may be a sign of a resource leak
+[0] WARNING:    or unmatched messages.
+[0] WARNING:    1. 1 time:
+[0] WARNING:       MPI_Isend(*buf=0x7fbfffe397, count=1, datatype=MPI_CHAR, dest=0, tag=400, comm=COMM_SELF [0], *request=0x7fbfffe790)
+[0] WARNING:       main (local/request/not_freed.c:88)
+
+[0] INFO: LOCAL:REQUEST:NOT_FREED: found 11 times (0 errors + 11 warnings), 0 reports were suppressed
+[0] INFO: Found 11 problems (0 errors + 11 warnings), 0 reports were suppressed.
+

@@ -1,0 +1,61 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 200
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 300s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] ERROR: LOCAL:MEMORY:INACCESSIBLE: error
+[0] ERROR:    Some memory in buffer (nil) is inaccessible.
+[0] ERROR:    Error occurred in:
+[0] ERROR:       MPI_Send(*buf=NULL, count=1, datatype=MPI_CHAR, dest=1, tag=100, comm=MPI_COMM_WORLD)
+[0] ERROR:       main (local/memory/inaccessible/MPI_Send.c:45)
+
+[1] ERROR: LOCAL:MEMORY:INACCESSIBLE: error
+[1] ERROR:    Some memory in buffer (nil) is inaccessible.
+[1] ERROR:    Error occurred in:
+[1] ERROR:       MPI_Send(*buf=NULL, count=1, datatype=MPI_CHAR, dest=0, tag=100, comm=MPI_COMM_WORLD)
+[1] ERROR:       main (local/memory/inaccessible/MPI_Send.c:45)
+
+[2] ERROR: LOCAL:MEMORY:INACCESSIBLE: error
+[2] ERROR:    Some memory in buffer (nil) is inaccessible.
+[2] ERROR:    Error occurred in:
+[2] ERROR:       MPI_Send(*buf=NULL, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD)
+[2] ERROR:       main (local/memory/inaccessible/MPI_Send.c:45)
+
+[3] ERROR: LOCAL:MEMORY:INACCESSIBLE: error
+[3] ERROR:    Some memory in buffer (nil) is inaccessible.
+[3] ERROR:    Error occurred in:
+[3] ERROR:       MPI_Send(*buf=NULL, count=1, datatype=MPI_CHAR, dest=2, tag=100, comm=MPI_COMM_WORLD)
+[3] ERROR:       main (local/memory/inaccessible/MPI_Send.c:45)
+
+[0] INFO: LOCAL:MEMORY:INACCESSIBLE: found 4 times (4 errors + 0 warnings), 0 reports were suppressed
+[0] INFO: Found 4 problems (4 errors + 0 warnings), 0 reports were suppressed.
+

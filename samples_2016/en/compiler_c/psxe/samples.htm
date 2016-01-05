@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+<head> 
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+<title>C++ Samples for Linux*</title>
+<link href="resources/samples.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a name="top"></a>
+<div id="banner">
+<img src="resources/intel_logo.png" class="logo">
+<h1 class="title">C++ Samples for Linux*</h1>
+</div>
+<div id="contentblock">
+<p>The compiler samples included with the Intel&reg; C++ compiler are designed to illustrate specific compiler optimizations, features, 
+tools, and programming concepts. </p>
+<p>Many of the samples are small, single source files intended to 
+illustrate the associated concept in a general way. Others are provided in .tar.gz files.  Please ensure that any files used are copied or untarred into a writeable directory.  The sample sources contain the command line options 
+and, where applicable, environment settings needed for compilation on Linux*, OS X*, and Windows*.</p>
+<p>Some of these samples are meant to illustrate features during compilation 
+only and 
+do not result in executables.</p>
+<p>Samples are located in <code>&lt;install-dir&gt;/samples_2016/en/compiler_c/psxe</code>
+<p>Additional C/C++ samples can be found online at <a href="http://software.intel.com/en-us/articles/samples-for-intelr-c-composer-xe" target="_blank">http://software.intel.com/en-us/articles/samples-for-intelr-c-composer-xe</a>.</p>
+<table class="tablecontrol">
+	<tr>
+		<th><p>Compiler Feature</p></th>
+		<th><p>Location</p></th>
+		<th><p>Description</p></th>
+	</tr>
+	<tr>
+		<td><p>Automatic optimizations</p></td>
+		<td><p class="code">optimize/</p></td>
+		<td><p>Illustrates how to use the automatic compiler options to quickly 
+		change the performance of an application.</td>
+	</tr>
+	<tr>
+		<td><p>Profile-guided Optimization (PGO)</td>
+		<td><p class="code"><a href="https://software.intel.com/en-us/code-samples/intel-c-compiler/compiler-features/PGO/fluidanimate_pgo" target="_blank">https://software.intel.com/en-us/code-samples/intel-c-compiler/compiler-features/PGO/fluidanimate_pgo</a></td>
+		<td><p>Illustrates profiling an application</p></td>
+	</tr>
+	<tr>
+		<td><p>Interprocedural Optimization (IPO)</td>
+		<td><p class="code">ipo_samples/</p></td>
+		<td><p>Illustrates using multi-file IPO compilation and generating IPO 
+		compiler reports.</td>
+	</tr>
+	<tr>
+		<td><p>OpenMP* support</p></td>
+		<td><p class="code">openmp_samples/</p></td>
+		<td><p>Illustrates using OpenMP* pragmas to create multi-threaded 
+		applications.</td>
+	</tr>
+	<tr>
+		<td><p>Intriniscs </p></td>
+		<td><p class="code">intrinsic_samples/</p></td>
+		<td><p>Illustrates using several instruction intrinsics supported in the compiler.</td>
+	</tr>
+	<tr>
+	  <td><p>Intel&reg; Cilk&#8482; Plus </p></td>
+	  <td><p class="code">cilk_samples/</p></td>
+	  <td><p>Illustrates parallel processing techniques using Intel&reg; Cilk&#8482; Plus. </p></td>
+	  </tr>
+
+	<tr>
+		<td><p>Vectorization</p></td>
+		<td><p class="code">vec_samples/</p></td>
+		<td><p>Files for use with "Intel® C++ Compiler 16.0 Tutorial -&gt; Using Auto-vectorization"</td>
+	</tr>
+	<tr>
+      <td><p>Parallelization</p></td>
+	  <td><p class="code">tachyon_samples.tar.gz</p></td>
+	  <td><p>Project for use with "Intel® C++ Compiler 16.0 Tutorial -&gt; Threading Your Applications"</p></td>
+  </tr>
+	<tr>
+      <td><p>Guided Auto Parallel</p></td>
+	  <td><p class="code">guided_auto_parallel.tar.gz</p></td>
+	  <td><p>Illustrates using Guided Auto Parallelism"</p></td>
+  </tr>
+	<tr>
+      <td><p>Intel® Many Integrated Core Architecture (Intel® MIC)</td>
+	  <td><p class="code">mic_samples/LEO_tutorial/</p></td>
+	  <td><p>Files for use with "Intel® C++ Compiler 16.0 Tutorial -&gt; Using the Intel® MIC Architecture"</p></td>
+  </tr>
+	<tr>
+		<td><p>Offload pragma for Intel® MIC</p></td>
+		<td><p class="code">mic_samples/intro_sampleC/</p></td>
+		<td><p>Illustrates introductory level offload pragma uses with scalars, named arrays, and pointers.
+		Use of alloc_if, if clause, __MIC__, OpenMP*, function calls within the offload region, copyable
+		structs, and multiple coprocessors. </p></td>
+	</tr>
+	<tr>
+		<td><p>Keywords _Cilk_shared and _Cilk_offload in C for Intel® MIC</p></td>
+		<td><p class="code">mic_samples/shrd_sampleC/</p></td>
+		<td><p>Illustrates the offload extension keywords _Cilk_shared and _Cilk_offload within C. Use of shared
+		scalars, arrays, functions, structs, string allocation on target, OpenMP*, shared malloc API,
+		pointer return, multiple coprocessors, and Intel® Cilk™ Plus language extensions. </p></td>
+	</tr>
+	<tr>
+		<td><p>Keywords _Cilk_shared and _Cilk_offload in C++ for Intel® MIC</p></td>
+		<td><p class="code">mic_samples/shrd_sampleCPP/</p></td>
+		<td><p>Illustrates the offload extension keywords _Cilk_shared and _Cilk_offload within C++. Shared class
+		member field/function access, member of different types, single/multiple class inheritance,
+		shared malloc API, passing pointer to/address of shared class object, shared class static
+		field member test, marking code region _Cilk_shared, shared class with virtual function member and 
+		virtual function member with single/multiple class inheritance, and a link list example. </p></td>
+	</tr>
+	<tr>
+	  <td><p>Intel&reg; Graphics Technology </p></td>
+	  <td><p class="code">gfx_samples.tar.gz</p></td>
+	  <td><p>Projects for use with the Intel® C++ Compiler 16.0 Tutorial -&gt; Using Intel&reg; Graphics Technology. More samples also included. </p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table class="tablecontrol">
+<tr><th>Optimization Notice</th></tr>
+<tr>
+<td><p>Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel.  Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more
+information regardîng the specific instruction sets covered by this notice. </p>
+<p>Notice revision #20110804</p></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>Copyright &copy; 2015 Intel Corporation. All Rights Reserved</p>
+<p>* Other names and brands may be claimed as the property of others  </p>
+</div>
+</body>
+</html>

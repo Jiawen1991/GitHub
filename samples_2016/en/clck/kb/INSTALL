@@ -1,0 +1,10 @@
+To install the knowledge base 'duck' sample, execute the following
+commands from the <installdir>/samples/kb sub-directory:
+
+% cp classes/duck.clp ../../kb/classes
+% cp rules/duck.clp ../../kb/rules
+% echo "(load* classes/duck.clp)" >> ../../kb/classes/load.clp
+% echo "(load* rules/duck.clp)" >> ../../kb/rules/load.clp
+
+Using an editor, manually merge the <msg>...</msg> entries in
+data/msg_en.xmc into ../../kb/data/msg_en.xmc.

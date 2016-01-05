@@ -1,0 +1,105 @@
+
+[0] INFO: CHECK LOCAL:EXIT:SIGNAL ON
+[0] INFO: CHECK LOCAL:EXIT:BEFORE_MPI_FINALIZE ON
+[0] INFO: CHECK LOCAL:MPI:CALL_FAILED ON
+[0] INFO: CHECK LOCAL:MEMORY:OVERLAP ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_MODIFICATION ON
+[0] INFO: CHECK LOCAL:MEMORY:INACCESSIBLE ON
+[0] INFO: CHECK LOCAL:MEMORY:ILLEGAL_ACCESS OFF
+[0] INFO: CHECK LOCAL:MEMORY:INITIALIZATION OFF
+[0] INFO: CHECK LOCAL:REQUEST:ILLEGAL_CALL ON
+[0] INFO: CHECK LOCAL:REQUEST:NOT_FREED ON
+[0] INFO: CHECK LOCAL:REQUEST:PREMATURE_FREE ON
+[0] INFO: CHECK LOCAL:DATATYPE:NOT_FREED ON
+[0] INFO: CHECK LOCAL:BUFFER:INSUFFICIENT_BUFFER ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:HARD ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:POTENTIAL ON
+[0] INFO: CHECK GLOBAL:DEADLOCK:NO_PROGRESS ON
+[0] INFO: CHECK GLOBAL:MSG:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:MSG:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:MSG:PENDING ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATATYPE:MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:DATA_TRANSMISSION_CORRUPTED ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:SIZE_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:REDUCTION_OPERATION_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:ROOT_MISMATCH ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:INVALID_PARAMETER ON
+[0] INFO: CHECK GLOBAL:COLLECTIVE:COMM_FREE_MISMATCH ON
+[0] INFO: maximum number of errors before aborting: CHECK-MAX-ERRORS 0 (= unlimited)
+[0] INFO: maximum number of reports before aborting: CHECK-MAX-REPORTS 3
+[0] INFO: maximum number of times each error is reported: CHECK-SUPPRESSION-LIMIT 100
+[0] INFO: timeout for deadlock detection: DEADLOCK-TIMEOUT 20s
+[0] INFO: timeout for deadlock warning: DEADLOCK-WARNING 10s
+[0] INFO: maximum number of reported pending messages: CHECK-MAX-PENDING 20
+
+[0] INFO: initialization completed successfully
+
+[0] WARNING: GLOBAL:DEADLOCK:NO_PROGRESS: warning
+[0] WARNING:    Processes have been blocked on average inside MPI for the last 0:14 minutes:
+[0] WARNING:    either the application has a load imbalance or a deadlock which is not detected
+[0] WARNING:    because at least one process polls for message completion instead of blocking
+[0] WARNING:    inside MPI.
+[0] WARNING:    [0] last MPI call:
+[0] WARNING:       MPI_Test(*request=0x607fffffffb36348->0x2c000002, *flag=0x607fffffffb3634c, *status=0x607fffffffb36334)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:78)
+[0] WARNING:    [1] no progress observed for over 0:19 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607ffffffe8ce330, count=1, datatype=MPI_CHAR, dest=2, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+[0] WARNING:    [2] no progress observed for over 0:19 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607fffffffeee330, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+[0] WARNING:    [3] no progress observed for over 0:19 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607ffffffe9ce330, count=1, datatype=MPI_CHAR, dest=0, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+
+[0] WARNING: GLOBAL:DEADLOCK:NO_PROGRESS: warning
+[0] WARNING:    Processes have been blocked on average inside MPI for the last 0:22 minutes:
+[0] WARNING:    either the application has a load imbalance or a deadlock which is not detected
+[0] WARNING:    because at least one process polls for message completion instead of blocking
+[0] WARNING:    inside MPI.
+[0] WARNING:    [0] last MPI call:
+[0] WARNING:       MPI_Test(*request=0x607fffffffb36348->0x2c000002, *flag=0x607fffffffb3634c, *status=0x607fffffffb36334)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:78)
+[0] WARNING:    [1] no progress observed for over 0:29 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607ffffffe8ce330, count=1, datatype=MPI_CHAR, dest=2, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+[0] WARNING:    [2] no progress observed for over 0:29 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607fffffffeee330, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+[0] WARNING:    [3] no progress observed for over 0:29 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607ffffffe9ce330, count=1, datatype=MPI_CHAR, dest=0, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+
+[0] WARNING: GLOBAL:DEADLOCK:NO_PROGRESS: warning
+[0] WARNING:    Processes have been blocked on average inside MPI for the last 0:37 minutes:
+[0] WARNING:    either the application has a load imbalance or a deadlock which is not detected
+[0] WARNING:    because at least one process polls for message completion instead of blocking
+[0] WARNING:    inside MPI.
+[0] WARNING:    [0] last MPI call:
+[0] WARNING:       MPI_Test(*request=0x607fffffffb36348->0x2c000002, *flag=0x607fffffffb3634c, *status=0x607fffffffb36334)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:78)
+[0] WARNING:    [1] no progress observed for over 0:49 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607ffffffe8ce330, count=1, datatype=MPI_CHAR, dest=2, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+[0] WARNING:    [2] no progress observed for over 0:49 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607fffffffeee330, count=1, datatype=MPI_CHAR, dest=3, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+[0] WARNING:    [3] no progress observed for over 0:49 minutes, process is currently in MPI call:
+[0] WARNING:       MPI_Send(*buf=0x607ffffffe9ce330, count=1, datatype=MPI_CHAR, dest=0, tag=100, comm=MPI_COMM_WORLD)
+[0] WARNING:       main (global/deadlock/no_progress/MPI_Test.c:81)
+[0] INFO: 3 reports, limit CHECK-MAX-REPORTS reached => aborting
+[0] WARNING: starting premature shutdown
+[0] INFO: stopping threads
+[0] INFO: waiting for threads to stop
+
+[0] INFO: GLOBAL:DEADLOCK:NO_PROGRESS: found 3 times (0 errors + 3 warnings), 0 reports were suppressed
+[0] INFO: Found 3 problems (0 errors + 3 warnings), 0 reports were suppressed.
+
+rank 2 in job 2147  knsipf4_48660   caused collective abort of all ranks
+  exit status of rank 2: killed by signal 9 
+rank 1 in job 2147  knsipf4_48660   caused collective abort of all ranks
+  exit status of rank 1: killed by signal 9 
+Command exited with non-zero status 1
+0.16user 0.06system 1:05.03elapsed 0%CPU (0avgtext+0avgdata 0maxresident)k
+0inputs+0outputs (3major+2807minor)pagefaults 0swaps

@@ -1,0 +1,21 @@
+    Intel(R) Trace Collector example - simple Jacobi iteration in Fortran
+
+This code was adapted from the examples for "Using MPI" by William
+Gropp, Ewing Lusk, and Anthony Skjellum, published by MIT Press (ISBN
+0-262-57104-8). The original version (with the other examples from
+this fine book) can be retrieved as
+ftp://info.mcs.anl.gov/pub/mpi/using/examples.tar.
+
+To instrument with ITC, the setup routine VTSETUP in VT.f was
+added, in addition to calls to VTBEGIN() and VTEND() in each
+subroutine/function. All the instrumentation code is enclosed in
+#ifdef/#endif brackets; define the macro V_T to include
+the instrumentation.
+
+See also ../README.
+
+Change the value of maxn in twod.F to adapt the gridsize (and thus the
+computation/calculation ratio). Start the executable (vtjacobif or
+vnjacobif) following the conventions of your system and MPI
+implementation. vtjacobif accepts no command-line arguments.
+

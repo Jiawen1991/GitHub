@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja-jp" xml:lang="ja-jp">
+<head> 
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+<title>Linux* 用 C++ サンプル</title>
+<link href="resources/samples.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<a name="top"></a>
+<div id="banner">
+<img src="resources/intel_logo.png" class="logo">
+<h1 class="title">Linux* 用 C++ サンプル</h1>
+</div>
+<div id="contentblock">
+<p>インテル&reg; C++ コンパイラーに同梱されているサンプルは、コンパイラーの最適化、機能、ツール、およびプログラムの基本概念を示すことを目的に設計されています。</p>
+<p>サンプルの多くは、対象となる概念を一般的に説明することを目的とした 1 つの小さなソースファイルです。そうでない場合は .tar.gz ファイルで提供されます。使用するファイルはすべて、書き込み可能なディレクトリーにコピーまたは展開してください。サンプルソースには、コマンドライン・オプション、および (必要に応じて) Linux*、OS X*、Windows* 上でのコンパイルに必要な環境設定が含まれています。</p>
+<p>コンパイル時の機能説明のみを目的とした一部のサンプルでは、実行ファイルは生成されません。</p>
+<p>サンプルプログラムは、<code>&lt;install-dir&gt;/samples_2016/ja/compiler_c/psxe</code> にあります。
+<p><a href="http://software.intel.com/en-us/articles/samples-for-intelr-c-composer-xe" target="_blank">http://software.intel.com/en-us/articles/samples-for-intelr-c-composer-xe</a> (英語) にも追加の C/C++ サンプルがあります。</p>
+<table class="tablecontrol">
+	<tr>
+		<th><p>コンパイラーの機能</p></th>
+		<th><p>場所</p></th>
+		<th><p>説明</p></th>
+	</tr>
+	<tr>
+		<td><p>自動最適化</p></td>
+		<td><p class="code">optimize/</p></td>
+		<td><p>自動コンパイラー・オプションを使用して、アプリケーションのパフォーマンスを素早く向上させる方法に関するサンプル。</td>
+	</tr>
+	<tr>
+		<td><p>プロファイルに基づく最適化 (PGO)</td>
+		<td><p class="code"><a href="https://software.intel.com/en-us/code-samples/intel-c-compiler/compiler-features/PGO/fluidanimate_pgo" target="_blank">https://software.intel.com/en-us/code-samples/intel-c-compiler/compiler-features/PGO/fluidanimate_pgo (英語)</a></td>
+		<td><p>アプリケーションのプロファイルに関するサンプル。</p></td>
+	</tr>
+	<tr>
+		<td><p>プロシージャー間の最適化 (IPO)</td>
+		<td><p class="code">ipo_samples/</p></td>
+		<td><p>マルチファイル IPO コンパイルの使用、および IPO コンパイラー・レポートの生成に関するサンプル。</td>
+	</tr>
+	<tr>
+		<td><p>OpenMP* のサポート</p></td>
+		<td><p class="code">openmp_samples/</p></td>
+		<td><p>OpenMP* プラグマを使用したマルチスレッド・アプリケーションの作成に関するサンプル。</td>
+	</tr>
+	<tr>
+		<td><p>組込み関数 </p></td>
+		<td><p class="code">intrinsic_samples/</p></td>
+		<td><p>コンパイラーでサポートされている組込み命令の使用に関するサンプル。</td>
+	</tr>
+	<tr>
+	  <td><p>インテル&reg; Cilk&#8482; Plus </p></td>
+	  <td><p class="code">cilk_samples/</p></td>
+	  <td><p>インテル&reg; Cilk&#8482; Plus を使用した並列処理テクニックに関するサンプル。</p></td>
+	  </tr>
+
+	<tr>
+		<td><p>ベクトル化</p></td>
+		<td><p class="code">vec_samples/</p></td>
+		<td><p>インテル&reg; C++ コンパイラー 16.0 の『入門チュートリアル: 自動ベクトル化の使用』で使用するファイル。</td>
+	</tr>
+	<tr>
+      <td><p>並列化</p></td>
+	  <td><p class="code">tachyon_samples.tar.gz</p></td>
+	  <td><p>インテル&reg; C++ コンパイラー 16.0 の『入門チュートリアル: アプリケーションのスレッド化』で使用するファイル。</p></td>
+  </tr>
+	<tr>
+      <td><p>ガイド付き自動並列化</p></td>
+	  <td><p class="code">guided_auto_parallel.tar.gz</p></td>
+	  <td><p>ガイド付き自動並列化の使用に関するファイル。</p></td>
+  </tr>
+	<tr>
+      <td><p>インテル&reg; メニー・インテグレーテッド・コア (インテル&reg; MIC) アーキテクチャー</td>
+	  <td><p class="code">mic_samples/LEO_tutorial/</p></td>
+	  <td><p>インテル&reg; C++ コンパイラー 16.0 の『入門チュートリアル: インテル&reg; MIC アーキテクチャーの使用』で使用するファイル。</p></td>
+  </tr>
+	<tr>
+		<td><p>インテル&reg; MIC 用の offload プラグマ</p></td>
+		<td><p class="code">mic_samples/intro_sampleC/</p></td>
+		<td><p>スカラー、名前付き配列、ポインターでの offload プラグマの基本的な使用に関するサンプル。alloc_if、if 句、__MIC__、OpenMP*、オフロード領域内での関数呼び出し、コピー可能な構造体、複数のコプロセッサーの使用。</p></td>
+	</tr>
+	<tr>
+		<td><p>インテル&reg; MIC 向けの _Cilk_shared キーワードと _Cilk_offload キーワード (C 言語)</p></td>
+		<td><p class="code">mic_samples/shrd_sampleC/</p></td>
+		<td><p>C コード内でのオフロード拡張キーワード _Cilk_shared と _Cilk_offload の使用に関するサンプル。共有スカラー、配列、関数、構造体、ターゲット上での文字列の割り当て、OpenMP*、共有 malloc API、ポインター戻し、複数のコプロセッサー、インテル&reg; Cilk&#8482; Plus 言語拡張の使用。</p></td>
+	</tr>
+	<tr>
+		<td><p>インテル&reg; MIC 向けの _Cilk_shared キーワードと _Cilk_offload キーワード (C++ 言語)</p></td>
+		<td><p class="code">mic_samples/shrd_sampleCPP/</p></td>
+		<td><p>C++ コード内でのオフロード拡張キーワード _Cilk_shared と _Cilk_offload の使用に関するサンプル。共有クラス・メンバー・フィールド/関数アクセス、異なる型のメンバー、単一/多重継承クラス、共有 malloc API、共有クラス・オブジェクトへのポインターの引渡し/共有クラス・オブジェクトのアドレスの引渡し、共有クラスのスタティック・フィールド・メンバーのテスト、_Cilk_shared 領域の指定、仮想関数メンバーを含む共有クラスと単一/多重継承クラスを含む仮想関数メンバー、リンクリストの例。</p></td>
+	</tr>
+	<tr>
+	  <td><p>インテル&reg; グラフィックス・テクノロジー </p></td>
+	  <td><p class="code">gfx_samples.tar.gz</p></td>
+	  <td><p>インテル&reg; C++ コンパイラー 16.0 の『インテル&reg; グラフィックス・テクノロジーの使用』で使用するファイル。その他のサンプルを含む。</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table class="tablecontrol">
+<tr><th>最適化に関する注意事項</th></tr>
+<tr>
+<td><p>インテル&reg; コンパイラーは、互換マイクロプロセッサー向けには、インテル製マイクロプロセッサー向けと同等レベルの最適化が行われない可能性があります。これには、インテル&reg; ストリーミング SIMD 拡張命令 2 (インテル&reg; SSE2)、インテル&reg; ストリーミング SIMD 拡張命令 3 (インテル&reg; SSE3)、ストリーミング SIMD 拡張命令 3 補足命令 (SSSE3) 命令セットに関連する最適化およびその他の最適化が含まれます。インテルでは、インテル製ではないマイクロプロセッサーに対して、最適化の提供、機能、効果を保証していません。本製品のマイクロプロセッサー固有の最適化は、インテル製マイクロプロセッサーでの使用を目的としています。インテル&reg; マイクロアーキテクチャーに非固有の特定の最適化は、インテル製マイクロプロセッサー向けに予約されています。この注意事項の適用対象である特定の命令セットの詳細は、該当する製品のユーザー・リファレンス・ガイドを参照してください。</p>
+<p>改訂 #20110804</p></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>&copy; 2015 Intel Corporation. 無断での引用、転載を禁じます。</p>
+<p>* その他の社名、製品名などは、一般に各社の表示、商標または登録商標です。</p>
+</div>
+</body>
+</html>
