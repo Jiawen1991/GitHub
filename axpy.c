@@ -12,33 +12,46 @@
 
 ///////////////////axpy
 
-#pragma offload_attribute(push, target(mic))
+/*#pragma offload_attribute(push, target(mic))
 static REAL x[SIZE];
 static REAL y[SIZE];
-#pragma offload_attribute(pop)
+#pragma offload_attribute(pop)*/
 
+//__attribute__((target(mic))) REAL x[SIZE];
+//__attribute__((target(mic))) int send_array(int* p, int s);
+
+static REAL x[SIZE];
+static REAL y[SIZE];
 
 static void init(REAL *A, long n);
 
 void axpy()
 {
-    int i,n;
+    int i,n,s;
+    REAL *p1, *p2;
+
     init(x, SIZE);
     init(y, SIZE);
+
+    p1 = x;
+    p2 = y;
+    s = SIZE;
+
     double start_timer = omp_get_wtime();
-    #pragma offload target(mic) optional
+    #pragma offload target(mic) optional in (p1, p2:length(s)) out(p1:length(s))
     {
+    //#pragma omp parallel for
     for(n=0; n<NTIMES; n++)
     {
-    for (i=0; i<SIZE; i++)
+    for (i=0; i<s; i++)
 	{
-	    x[i] = x[i] * FACTOR + y[i];
+	    p1[i] = p1[i] * FACTOR + p2[i];
 	}
     }
     }
     double walltime = omp_get_wtime() - start_timer;
-    printf("PASS axpy\n");
-    printf("Matmul kernel wall clock time = %.2f sec\n", walltime);
+    printf("PASS axpy\n\n");
+    printf("Matmul kernel wall clock time = %.2f sec\n\n", walltime);
 }
 
 static void init(REAL *A, long n) {
