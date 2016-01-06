@@ -1,3 +1,4 @@
+#pragma offload_attribute(push,target(mic)) //{
 #include <stdio.h>
 #include <time.h>
 #include <float.h>
@@ -12,7 +13,7 @@
 #endif
 
 #define REAL float
-#define NTIMES 20000 
+#define NTIMES 50 
 
 void init(REAL *A, long n) {
     long i;
@@ -21,7 +22,7 @@ void init(REAL *A, long n) {
     }
 }
 
-int main(void)
+void axpy()
 {
   double walltime;
   bool nthr_checked=false;
@@ -32,8 +33,7 @@ int main(void)
   REAL *x;
   REAL a = 123.456;
   n = 5000000;
-
-  printf("Using time() for wall clock time\n");
+  long nthr=0;
 
     y = ((REAL *) (malloc((n * sizeof(REAL)))));
     x = ((REAL *) (malloc((n * sizeof(REAL)))));
@@ -44,9 +44,10 @@ int main(void)
     init(x, n);
     init(y, n);
 
-  long  l, i, nthr = 0;
+  long  l, i = 0;
   double start_timer = omp_get_wtime();
   start = time(NULL);
+{
   for (l=0; l<NTIMES; l++) {
    #pragma omp parallel shared(x,y,n,a) private(i)
    {
@@ -64,10 +65,15 @@ int main(void)
       y[i] += a * x[i];
     }
     }
+}
   walltime = omp_get_wtime() - start_timer;
   printf("\nFinished calculations.\n");
   printf("Matmul kernel wall clock time = %.2f sec\n", walltime);
-  printf("Wall clock time/thread = %.2f sec\n", walltime/nthr);
+}
+#pragma offload_attribute(pop) //}
 
-  return 0;
+int main(void)
+{
+#pragma offload target(mic:0)
+ axpy();
 }
