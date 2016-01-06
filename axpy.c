@@ -1,79 +1,107 @@
-#pragma offload_attribute(push,target(mic)) //{
 #include <stdio.h>
-#include <time.h>
 #include <float.h>
 #include <math.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif
-#ifndef __cplusplus
-#define bool _Bool
-#define true 1
-#define false 0
-#endif
 
 #define REAL float
-#define NTIMES 50 
+#define NTIMES 2000 
+#define SIZE 500000
+#define FACTOR 123.456
 
-void init(REAL *A, long n) {
+///////////////////axpy
+
+#pragma offload_attribute(push, target(mic))
+static REAL x[SIZE];
+static REAL y[SIZE];
+#pragma offload_attribute(pop)
+
+
+static void init(REAL *A, long n);
+
+void axpy()
+{
+    int i,n;
+    init(x, SIZE);
+    init(y, SIZE);
+    double start_timer = omp_get_wtime();
+    #pragma offload target(mic) optional
+    {
+    for(n=0; n<NTIMES; n++)
+    {
+    for (i=0; i<SIZE; i++)
+	{
+	    x[i] = x[i] * FACTOR + y[i];
+	}
+    }
+    }
+    double walltime = omp_get_wtime() - start_timer;
+    printf("PASS axpy\n");
+    printf("Matmul kernel wall clock time = %.2f sec\n", walltime);
+}
+
+static void init(REAL *A, long n) {
     long i;
     for (i = 0; i < n; i++) {
         A[i] = ((REAL) (drand48()) + 13);
     }
 }
 
-void axpy()
+////////////////// check_devices
+
+__attribute__((target(mic))) int chk_target00();
+void check_devices()
 {
-  double walltime;
-  bool nthr_checked=false;
-  time_t start;
-  long n;
-  REAL *y;
-  REAL *y_ompacc;
-  REAL *x;
-  REAL a = 123.456;
-  n = 5000000;
-  long nthr=0;
+   int num_devices = 0;
+   int offload_mode = 0;
+   int target_ok;
+   int i;
+  printf("Checking for Intel(R) Xeon Phi(TM) (Target CPU) devices...\n\n");
 
-    y = ((REAL *) (malloc((n * sizeof(REAL)))));
-    x = ((REAL *) (malloc((n * sizeof(REAL)))));
-    //y_ompacc = ((REAL *) (omp_unified_malloc((n * sizeof(REAL)))));
-    //x = ((REAL *) (omp_unified_malloc((n * sizeof(REAL)))));
-
-    srand48(1 << 12);
-    init(x, n);
-    init(y, n);
-
-  long  l, i = 0;
-  double start_timer = omp_get_wtime();
-  start = time(NULL);
-{
-  for (l=0; l<NTIMES; l++) {
-   #pragma omp parallel shared(x,y,n,a) private(i)
-   {
-   #pragma omp single nowait
-    if (!nthr_checked) {
-#ifdef _OPENMP
-      nthr = omp_get_num_threads();
+#ifdef __INTEL_OFFLOAD
+   num_devices = _Offload_number_of_devices();
 #endif
-      printf( "\nWe are using %d thread(s)\n", nthr);
-      nthr_checked = true;
-    }
+   printf("Number of Target devices installed: %d\n\n",num_devices);
 
-    #pragma omp for nowait
-    for (i = 0; i < n; ++i)
-      y[i] += a * x[i];
-    }
+   if (num_devices < 1) {
+printf("Offload sections will execute on: Host CPU (fallback mode)\n\n");
+      offload_mode = 0;
+   }
+   else {
+      printf("Offload sections will execute on: Target CPU (offload mode)\n\n");
+      offload_mode = 1;
+
+      #pragma noinline
+      for (i = 0; i < num_devices; i++) {
+         target_ok = 0;
+         #pragma offload target(mic: i) optional in(i)
+         target_ok = chk_target00();
+         if (! target_ok) {
+            printf(" ***Warning: offload to device #%d : failed\n", i);
+         }
+       }
     }
 }
-  walltime = omp_get_wtime() - start_timer;
-  printf("\nFinished calculations.\n");
-  printf("Matmul kernel wall clock time = %.2f sec\n", walltime);
+__attribute__((target(mic))) int chk_target00()
+{
+    int retval;
+
+    #ifdef __MIC__
+        retval = 1;
+    #else
+        retval = 0;
+    #endif
+
+    // Return 1 if target available
+       return retval;
 }
-#pragma offload_attribute(pop) //}
+
+
 
 int main(void)
 {
-#pragma offload target(mic:0)
- axpy();
+    check_devices();
+
+    axpy();
 }
