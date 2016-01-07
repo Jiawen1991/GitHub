@@ -9,6 +9,7 @@
 #define SIZE 500000
 #define FACTOR 123.456
 
+
 ///////////////////axpy
 
 /*#pragma offload_attribute(push, target(mic))
@@ -18,20 +19,33 @@ static REAL y[SIZE];
 
 __attribute__((target(mic))) REAL *x;
 __attribute__((target(mic))) REAL *y;
-
+//REAL *x;
+//REAL *y;
+//
 static void init(REAL *A, long n);
 
 void axpy()
 {
-    int i,n,s;
+    int i,n;
+    int array_sent = 0;
+    //REAL *x_host, *y_host;
+    //init(x_host, SIZE);
+    //init(y_host, SIZE);
     init(x, SIZE);
     init(y, SIZE);
 
     double start_timer = omp_get_wtime();
-    //#pragma offload target(mic) in (x, y) out(x)
-    #pragma offload target(mic) in (x:length(SIZE)) \
-    				in (y:length(SIZE)) \
-    				out(x:length(SIZE))
+    
+    double alloc_time = omp_get_wtime();
+    #pragma offload target(mic) in (x: length(SIZE) alloc_if(1) free_if(0)) \
+    				in (y: length(SIZE) alloc_if(1) free_if(0)) 
+    {
+    }
+    alloc_time = omp_get_wtime() - alloc_time;
+  
+    double kernel_time = omp_get_wtime();
+    #pragma offload target(mic) nocopy (x: length(SIZE) alloc_if(0) free_if(0)) \
+    				nocopy (y: length(SIZE) alloc_if(0) free_if(0)) 
     //#pragma omp parallel for
     for(n=0; n<NTIMES; n++)
     {
@@ -40,11 +54,22 @@ void axpy()
 	    x[i] = x[i] * FACTOR + y[i];
 	}
     }
+    kernel_time = omp_get_wtime() - kernel_time;
+
+    double free_time = omp_get_wtime();
+    #pragma offload target(mic) nocopy (x: length(SIZE) alloc_if(0) free_if(1)) \
+    				nocopy (y: length(SIZE) alloc_if(0) free_if(1)) 
+    {
+    }
+    free_time = omp_get_wtime() - free_time;
     
     double walltime = omp_get_wtime() - start_timer;
 
     printf("PASS axpy\n\n");
-    printf("Matmul kernel wall clock time = %.2f sec\n\n", walltime);
+    printf("Alloc time = %.2f sec\n\n", alloc_time);
+    printf("Kernel time = %.2f sec\n\n", kernel_time);
+    printf("Free time = %.2f sec\n\n", free_time);
+    printf("Total time = %.2f sec\n\n", walltime);
 }
 
 static void init(REAL *A, long n) {
